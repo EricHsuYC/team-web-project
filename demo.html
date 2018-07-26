@@ -27,9 +27,10 @@
         }
 
         * {
-            /* box-sizing: border-box !important; */
             /* border: 1px solid #ff8037 !important; */
             list-style-type: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         a,
@@ -81,7 +82,7 @@
         #shopcard {
             background-color: #ffd8c2;
 
-            height: 100vh !important;
+            /* height: 100vh !important; */
         }
 
         #shop {
@@ -108,32 +109,43 @@
             background-color: rgb(253, 255, 145);
             /* margin-left: 2rem !important; */
         }
-        
+
         #p-card {
-            height: 0;
-            padding-bottom: 25% !important;
-            background-color: rgb(253, 255, 145);
-            /* margin-left: 10px !important; */
-            /* margin-right: 10px !important; */
+            position: relative !important;
+
+            /* background-color: rgb(253, 255, 145); */
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            padding: 0;
+            padding-bottom: 20px !important;
 
 
         }
-        #p-card>div{
-            margin-top: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
-            background-color: rgb(255, 198, 198);
+
+
+
+        /* 撐出比例空間 */
+
+        #h150 {
+            /* position: absolute !important; */
+            /* top: 0; */
+            /* left: 0; */
+            /* height: 300px !important; */
+            padding-bottom: 150% !important;
+            /* margin-top: 10px; */
+            margin-left: 0px;
+            margin-right: 0px;
+            background-color: rgb(198, 248, 255);
+            /* float: left; */
             /* height: 100% !important; */
-
         }
 
-        #product-row{
-            /* margin-left: -25px !important; */
-            /* margin-right: -25px !important; */
+        #product-row {
+            margin-left: -10px !important;
+            margin-right: -10px !important;
             /* margin: -50px !important; */
             /* padding-left: -30px !important; */
             /* padding-right: -30px !important; */
-
         }
 
         /* #navbody::after {
@@ -234,7 +246,7 @@
 
     <!-- header end -->
 
-    <div id="shop" class="container-fluid mt-0">
+    <div id="shop" class="container-fluid mt-0 mx-auto">
         <div class="row">
             <div id="sidebar" class="col-2 h-100"></div>
             <div id="shopcard" class="col h-100">
@@ -248,23 +260,108 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
 
-                <div id="product-row" class="row align-items-stretch">
-                    <div id="p-card" class="col-4"><div class="h-100">123123</div></div>
-                    <div id="p-card" class="col-4"><div>123123</div></div>
 
-                    <div id="p-card" class="col-4"><div>123123</div></div>
+                <!-- <img src="https://fakeimg.pl/100x100/#ccc"> -->
 
-                    <div id="p-card" class="col-4"><div>123123</div></div>
-
-                    <div id="p-card" class="col-4"><div>123123</div></div>
-
-                    <div id="p-card" class="col-4"><div>123123</div></div>
-
-                    
-
-
+                <div id="product-row" class="row">
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
+                    <div id="p-card" class="col-lg-4 col-sm-6">
+                        <img class="w-100 float-left" src="https://fakeimg.pl/100x100/#ccc" alt="">
+                        <div class="float-left w-100 m-0 row">
+                            <p class="col-12 mx-auto text-center">11231231231</p>
+                            <h3 class="col-12 mx-auto  text-center">GGGG</h3>
+                        </div>
+                        <div id="h150" class=""></div>
+                    </div>
 
                 </div>
+
+                <!-- <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/100x180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <p class="card-text">Text</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/100x180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <p class="card-text">Text</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/100x180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <p class="card-text">Text</p>
+                        </div>
+                    </div>
+                </div> -->
 
             </div>
 
