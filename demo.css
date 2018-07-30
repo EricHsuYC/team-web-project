@@ -1,7 +1,43 @@
 
 :root {
-    font-size: 16px !important;
+    /* font-size: 16px !important; */
 }
+
+html {
+    font-size: 4px !important;
+  }
+
+  @media only screen and (min-width: 340px) {
+    html {
+      font-size: 8px !important;
+      background-color: #43acb8 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 576px) {
+    html {
+      font-size: 10px !important;
+      background-color: #43acb8 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    html {
+      font-size: 12px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    html {
+      font-size: 14px !important;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    html {
+      font-size: 16px !important;
+    }
+  }
 
 
 .p-rt{
@@ -21,6 +57,13 @@
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
+}
+
+
+
+#spacer{
+    border-bottom: 1px solid #ccc;
+
 }
 
 a,
@@ -54,7 +97,15 @@ nav .row {
 
 #navbody {
     background-color: white;
-    border-bottom: 1px solid rgb(187, 187, 187);
+    /* border-bottom: 1px solid rgb(187, 187, 187); */
+}
+
+#navbody #spacer{
+    width: 95vw !important;
+    /* border-bottom: 1px solid #ccc; */
+
+
+
 }
 
 #navbody h3 {
@@ -73,7 +124,7 @@ nav .row {
 
 
 #navfooter {
-    background-color: #ffb78e;
+    /* background-color: #ffb78e; */
 }
 
 #header {
@@ -99,9 +150,14 @@ nav .row {
     background-color: #43acb8;
 }
 
+.framebtn {
+    color: rgb(0, 0, 0);
+    background-color: inherit;
+    border: 1px solid black;
+}
+
 #shop_main {
-    /* background-color: #ffd8c2; */
-    /* height: 100vh !important; */
+
 }
 
 #shop {
@@ -113,7 +169,6 @@ nav .row {
     margin-right: 2vw !important;
 
     background-color: rgba(238, 238, 238, 0.637) !important;
-    /* height: 100vh !important; */
 }
 
 #dealbox{
@@ -125,7 +180,6 @@ nav .row {
     position: absolute;
     top: 0px;
     left: 0px;
-    font-size: 1.2rem;
     color: white;
 }
 #dealbox img{
@@ -135,17 +189,10 @@ nav .row {
 
 
 
-#hl-row {
-    /* margin-left: -3vw !important; */
-}
-
 
 #hl-row #hl-card {
-    /* height: 0; */
-    /* padding-bottom: 25% !important; */
-    /* height: 300px; */
-    background-color: rgb(253, 255, 145);
-    /* margin-left: 2rem !important; */
+
+    background-color: #ddd;
 }
 
 #p-card{
@@ -162,23 +209,53 @@ nav .row {
 /* 撐出比例空間 */
 
 #card_height {
-    /* position: absolute !important; */
-    /* top: 0; */
-    /* left: 0; */
+
     height: 0px !important;
     padding-bottom: 140% !important;
-    /* margin-top: 10px; */
     margin-left: 0px;
     margin-right: 0px;
-    /* background-color: rgb(198, 248, 255); */
-    /* float: left; */
-    /* height: 100% !important; */
+
 }
 
 #product-row {
     margin-left: -10px !important;
     margin-right: -10px !important;
-    /* margin: -50px !important; */
-    /* padding-left: -30px !important; */
-    /* padding-right: -30px !important; */
+
+}
+
+
+#shop #spacer {
+    border-bottom: 1px solid #ccc;
+
+}
+
+#shoprow2 .col{
+    background-color: #ccc;
+}
+
+#shoprow3 {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+
+}
+
+#shoprow3 .col{
+    padding: 10px !important;
+}
+
+#footer {
+    background-color: rgb(49, 49, 49);
+    color: #ccc
+}
+.input-group {
+    background-color: #ddd;
+}
+
+#footer .form-control{
+    border: none;
+
+}
+
+#footer button {
+    background-color: white;
 }
