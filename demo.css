@@ -1,9 +1,22 @@
+
 :root {
     font-size: 16px !important;
 }
 
+
+.p-rt{
+    position: relative !important;
+}
+
+.p-abs{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
 * {
-    border: 1px solid #ff8037 !important;
+    /* border: 1px solid #ff8037 !important; */
     list-style-type: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -76,12 +89,12 @@ nav .row {
     border: 1px solid #43acb8;
 }
 
-#header button:nth-of-type(1) {
+.blackbtn {
     color: #ccc;
     background-color: black;
 }
 
-#header button:nth-of-type(2) {
+.greenbtn {
     color: rgb(255, 255, 255);
     background-color: #43acb8;
 }
@@ -103,6 +116,25 @@ nav .row {
     /* height: 100vh !important; */
 }
 
+#dealbox{
+    position: relative;
+}
+
+#dealbox .row{
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 1.2rem;
+    color: white;
+}
+#dealbox img{
+    background-color: #43acb8;
+
+}
+
+
+
 #hl-row {
     /* margin-left: -3vw !important; */
 }
@@ -116,13 +148,10 @@ nav .row {
     /* margin-left: 2rem !important; */
 }
 
-#p-card {
-    position: relative !important;
+#p-card{
 
-    /* background-color: rgb(253, 255, 145); */
     padding-left: 10px !important;
     padding-right: 10px !important;
-    padding: 0;
     padding-bottom: 20px !important;
 
 
