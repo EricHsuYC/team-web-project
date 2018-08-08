@@ -1,0 +1,274 @@
+.w-100{
+    /* width:55%!important; */
+}
+:root {
+    /* font-size: 16px !important; */
+}
+
+html {
+    background-size : cover;
+    font-size: 4px !important;
+  }
+
+  @media only screen and (min-width: 340px) {
+    html {
+      font-size: 8px !important;
+      background-color: #43acb8 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 576px) {
+    html {
+      font-size: 10px !important;
+      background-color: #43acb8 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    html {
+      font-size: 12px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    html {
+      font-size: 14px !important;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    html {
+      font-size: 16px !important;
+    }
+  }
+
+
+.p-rt{
+    position: relative !important;
+}
+
+.p-abs{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+* {
+    /* border: 1px solid #ff8037 !important; */
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+
+
+#spacer{
+    border-bottom: 1px solid rgb(204, 204, 204);
+
+}
+
+a,
+select {
+    /* background-color: inherit !important; */
+    color: rgb(104, 104, 104)!important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #ccc !important;
+}
+
+
+
+#navheader {
+
+    background-color: rgb(255, 255, 255) !important;
+    border-bottom:  1px solid rgb(204, 204, 204)
+
+}
+
+nav div {
+    color: rgb(172, 172, 172) !important;
+    /* padding-top:0.25rem !important;  */
+    /* padding-bottom:0.25rem !important;  */
+}
+
+nav .row {
+    /* width: 95vw !important; */
+}
+
+#navbody {
+    background-color: rgb(255, 255, 255);
+    /* border-bottom: 1px solid rgb(187, 187, 187); */
+}
+
+#navbody #spacer{
+    /* width: 95vw !important; */
+    /* border-bottom: 1px solid #ccc; */
+
+
+
+}
+
+#navbody h3 {
+    color: black;
+}
+
+#catagoryDropdown {
+    background-color: rgb(255, 210, 64);
+    /* color: black; */
+}
+
+#catagoryDropdown .dropdown-toggle::after {
+    color: rgb(0, 0, 0);
+}
+
+
+
+#navfooter {
+    /* background-color: #ffb78e; */
+}
+#header .row{
+    background-image: url("img/banner01.jpg");
+    background-size : cover;
+}
+
+#header {
+    height: 20vw !important;
+    /* background-image: url("img/banner01.jpg"); */
+    background-size : cover;
+    background-color: #ccc;
+    
+    /* width: 95vw !important; */
+    margin-bottom: 2vw !important;
+
+}
+
+#header #spacer {
+    width: 100px;
+    border: 1px solid #43acb8;
+}
+
+.blackbtn {
+    color: rgb(255, 74, 2);
+    background-color: #fffb00
+    
+}
+
+.greenbtn {
+    color: rgb(4, 116, 0);
+    background-color: rgb(81, 255, 0);
+    ;
+}
+
+.framebtn {
+    color: rgb(0, 0, 0);
+    background-color: inherit;
+    border: 1px solid black;
+}
+
+#shop_main {
+
+}
+
+#shop {
+    /* width: 95vw !important; */
+}
+
+
+#shop_sidebar {
+    margin-right: 2vw !important;
+
+    background-color: rgb(244, 255, 240) !important;
+}
+
+#dealbox{
+    position: relative;
+}
+
+#dealbox .row{
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: white;
+}
+#dealbox img{
+    background-color: #43acb8;
+
+}
+
+
+
+
+#hl-row #hl-card {
+
+    background-color: rgb(252, 255, 64);
+}
+
+#p-card{
+
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 20px !important;
+
+
+}
+
+
+
+/* 撐出比例空間 */
+
+#card_height {
+
+    height: 0px !important;
+    padding-bottom: 135% !important;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#product-row {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+
+}
+
+
+#shop #spacer {
+    border-bottom: 1px solid #ccc;
+
+}
+
+#shoprow2 .col{
+    background-color: rgb(177, 255, 51);
+}
+
+#shoprow3 {
+    /* margin-left: -10px !important; */
+    /* margin-right: -10px !important; */
+
+}
+
+#shoprow3 .col{
+    padding: 10px !important;
+}
+
+#footer {
+    background-color: rgb(255, 153, 0);
+    color: rgb(255, 255, 255)
+}
+.input-group {
+    background-color: #ddd;
+}
+
+#footer .form-control{
+    border: none;
+
+}
+
+#footer button {
+    background-color: white;
+}
