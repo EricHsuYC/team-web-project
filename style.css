@@ -153,7 +153,7 @@ nav .row {
 
 .blackbtn {
     color: rgb(255, 74, 2);
-    background-color: #fffb00
+    background-color: #fffb00;
     
 }
 
@@ -205,7 +205,7 @@ nav .row {
 
 #hl-row #hl-card {
 
-    background-color: rgb(252, 255, 64);
+    /* background-color: ; */
 }
 
 #p-card{
