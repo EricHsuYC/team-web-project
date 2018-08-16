@@ -3,7 +3,24 @@
 @{
     ViewBag.Title = "產品列表";
 }
+<!-- header start -->
+<div id="header" class="container-fluid ">
+    <div class="row col-12 mx-auto h-100 justify-content-center">
+        <div class="col-6 align-self-center text-center">
+            <p>COMING SOON NEXT WEEK</p>
 
+            <h1>Lorem ipsum dolor sit.</h1>
+            <div id="spacer" class="mx-auto my-4"></div>
+
+            <button type="button" class="btn py-2 px-3 blackbtn">SHOW NOW</button>
+            <button type="button" class="btn py-2 px-3 greenbtn">LEARN MORE</button>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- header end -->
 <div class="row">
     @foreach (var item in Model)
     {
@@ -25,4 +42,7 @@
             </div>
         </div>
     }
+
+
+
 </div>
