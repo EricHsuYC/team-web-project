@@ -11,11 +11,22 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class shopping_cart
     {
+
+        [DisplayName("產品編號")]
+        [Required]
         public string product_no { get; set; }
+
+        [DisplayName("產品數量")]
+        [Required]
         public Nullable<int> product_quantity { get; set; }
+
+        [DisplayName("會員帳號")]
+        [Required]
         public string member_account { get; set; }
     }
 }

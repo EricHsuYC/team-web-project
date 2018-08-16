@@ -21,7 +21,6 @@
           </Key>
           <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_quantity" Type="int" />
-          <Property Name="remark" Type="nvarchar" MaxLength="50" />
           <Property Name="product_no" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="order_form">
@@ -38,6 +37,7 @@
           <Property Name="payment_status" Type="nvarchar" MaxLength="50" />
           <Property Name="shipping_status" Type="nvarchar" MaxLength="50" />
           <Property Name="member_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -85,7 +85,6 @@
           </Key>
           <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="product_quantity" Type="Int32" />
-          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="order_form">
@@ -102,6 +101,7 @@
           <Property Name="payment_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="shipping_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -151,7 +151,6 @@
               <MappingFragment StoreEntitySet="order_detail">
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -159,6 +158,7 @@
           <EntitySetMapping Name="order_form">
             <EntityTypeMapping TypeName="team_web_projectModel.order_form">
               <MappingFragment StoreEntitySet="order_form">
+                <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="order_date" ColumnName="order_date" />
                 <ScalarProperty Name="recipient_name" ColumnName="recipient_name" />

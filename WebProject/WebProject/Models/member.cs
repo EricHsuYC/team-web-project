@@ -11,13 +11,28 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class member
     {
+
         public int member_id { get; set; }
+
+        [DisplayName("會員姓名")]
+        [Required]
         public string member_name { get; set; }
+
+        [DisplayName("會員電話")]
+        [Required]
         public string member_phone { get; set; }
+
+        [DisplayName("會員帳號")]
+        [Required]
         public string member_account { get; set; }
+
+        [DisplayName("密碼")]
+        [Required]
         public string member_password { get; set; }
     }
 }

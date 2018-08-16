@@ -11,14 +11,34 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class product
     {
+
+        [DisplayName("產品編號")]
+        [Required]
         public string product_no { get; set; }
+
+        [DisplayName("產品名稱")]
+        [Required]
         public string product_name { get; set; }
+
+        [DisplayName("產品價格")]
+        [Required]
         public Nullable<int> product_price { get; set; }
+
+        [DisplayName("產品描述")]
+        [Required]
         public string product_description { get; set; }
+
+        [DisplayName("產品介紹")]
+        [Required]
         public string product_details { get; set; }
+
+        [DisplayName("產品圖片")]
+        [Required]
         public string product_image { get; set; }
     }
 }

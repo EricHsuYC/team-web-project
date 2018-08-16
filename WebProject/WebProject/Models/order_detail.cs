@@ -11,12 +11,22 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class order_detail
     {
+
+        [DisplayName("訂單編號")]
+        [Required]
         public int order_id { get; set; }
+
+        [DisplayName("商品數量")]
+        [Required]
         public Nullable<int> product_quantity { get; set; }
-        public string remark { get; set; }
+
+        [DisplayName("商品編號")]
+        [Required]
         public string product_no { get; set; }
     }
 }
