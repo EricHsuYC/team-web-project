@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="team_web_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="member_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="member_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="member_password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="order_detail">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_quantity" Type="int" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="order_form">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_date" Type="date" />
+          <Property Name="recipient_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="recipient_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="recipient_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="payment_method" Type="nvarchar" MaxLength="50" />
+          <Property Name="remittance_account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="payment_status" Type="nvarchar" MaxLength="50" />
+          <Property Name="shipping_status" Type="nvarchar" MaxLength="50" />
+          <Property Name="member_account" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_no" />
+          </Key>
+          <Property Name="product_no" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_price" Type="int" />
+          <Property Name="product_description" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_details" Type="nvarchar" MaxLength="100" />
+          <Property Name="product_image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="shopping_cart">
+          <Key>
+            <PropertyRef Name="member_account" />
+          </Key>
+          <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_quantity" Type="int" />
+          <Property Name="member_account" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="team_web_projectModelStoreContainer">
+          <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_detail" EntityType="Self.order_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_form" EntityType="Self.order_form" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="team_web_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="member_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="member_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="order_detail">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_quantity" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="order_form">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_date" Type="DateTime" Precision="0" />
+          <Property Name="recipient_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipient_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipient_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="payment_method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remittance_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="payment_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shipping_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_no" />
+          </Key>
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Int32" />
+          <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="shopping_cart">
+          <Key>
+            <PropertyRef Name="member_account" />
+          </Key>
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_quantity" Type="Int32" />
+          <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="team_web_projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="member" EntityType="Self.member" />
+          <EntitySet Name="order_detail" EntityType="Self.order_detail" />
+          <EntitySet Name="order_form" EntityType="Self.order_form" />
+          <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="team_web_projectModelStoreContainer" CdmEntityContainer="team_web_projectEntities">
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="team_web_projectModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="member_name" ColumnName="member_name" />
+                <ScalarProperty Name="member_phone" ColumnName="member_phone" />
+                <ScalarProperty Name="member_account" ColumnName="member_account" />
+                <ScalarProperty Name="member_password" ColumnName="member_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_detail">
+            <EntityTypeMapping TypeName="team_web_projectModel.order_detail">
+              <MappingFragment StoreEntitySet="order_detail">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_form">
+            <EntityTypeMapping TypeName="team_web_projectModel.order_form">
+              <MappingFragment StoreEntitySet="order_form">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="recipient_name" ColumnName="recipient_name" />
+                <ScalarProperty Name="recipient_phone" ColumnName="recipient_phone" />
+                <ScalarProperty Name="recipient_address" ColumnName="recipient_address" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="remittance_account" ColumnName="remittance_account" />
+                <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+                <ScalarProperty Name="shipping_status" ColumnName="shipping_status" />
+                <ScalarProperty Name="member_account" ColumnName="member_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="team_web_projectModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="product_image" ColumnName="product_image" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_details" ColumnName="product_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shopping_cart">
+            <EntityTypeMapping TypeName="team_web_projectModel.shopping_cart">
+              <MappingFragment StoreEntitySet="shopping_cart">
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+                <ScalarProperty Name="member_account" ColumnName="member_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
