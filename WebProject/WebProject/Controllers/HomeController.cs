@@ -17,13 +17,16 @@ namespace WebProject.Controllers
         // GET: Home
         public ActionResult Index()
         {
+
+            var products = db.product;
             if (appClass.Member != "")
             {
 
             }
 
 
-            return View();
+
+            return View(products);
         }
 
         
