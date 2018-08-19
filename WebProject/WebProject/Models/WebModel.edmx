@@ -49,6 +49,7 @@
           <Property Name="product_description" Type="nvarchar" MaxLength="50" />
           <Property Name="product_details" Type="nvarchar" MaxLength="100" />
           <Property Name="product_image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_catagory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
@@ -113,6 +114,7 @@
           <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
@@ -175,6 +177,7 @@
           <EntitySetMapping Name="product">
             <EntityTypeMapping TypeName="team_web_projectModel.product">
               <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Product_catagory" ColumnName="Product_catagory" />
                 <ScalarProperty Name="product_image" ColumnName="product_image" />
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
