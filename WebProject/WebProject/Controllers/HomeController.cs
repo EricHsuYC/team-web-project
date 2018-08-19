@@ -36,7 +36,7 @@ namespace WebProject.Controllers
         [HttpPost]
         public ActionResult Login(string id, string pwd)
         {
-            var Member = db.member.Where(m => m.member_account == id && m.member_password == pwd);
+            var Member = db.member.Where(m => m.member_account == id && m.member_password == pwd).FirstOrDefault();
             if (Member == null)
             {
                 ViewBag.Message = "帳號或密碼輸入錯誤";
@@ -44,13 +44,39 @@ namespace WebProject.Controllers
             }
             else
             {
-                //Session["Member"] = member.;
-                appClass.Member = db.member.ToString();
+                //Session["Member"] = Member.member_name;
+                appClass.Member = Member.member_name.ToString();
+
+
                 return RedirectToAction("Index");
 
             }
 
 
+        }
+
+        public ActionResult register()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult register(member member)
+        {
+            if ()
+            {
+                return View();
+            }
+            else
+                var member = db.member.Where(m=>)
+
+
+                return View();
+                
+
+
+            
         }
 
 
