@@ -24,11 +24,38 @@ namespace WebProject.Controllers
 
             }
 
-
-
             return View(products);
         }
 
-        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(string id, string pwd)
+        {
+            var Member = db.member.Where(m => m.member_account == id && m.member_password == pwd);
+            if (Member == null)
+            {
+                ViewBag.Message = "帳號或密碼輸入錯誤";
+                return View();
+            }
+            else
+            {
+                //Session["Member"] = member.;
+                appClass.Member = db.member.ToString();
+                return RedirectToAction("Index");
+
+            }
+
+
+        }
+
+
+
+
+
     }
 }

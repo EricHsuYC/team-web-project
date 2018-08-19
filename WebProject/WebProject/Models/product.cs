@@ -40,5 +40,9 @@ namespace WebProject.Models
         [DisplayName("產品圖片")]
         [Required]
         public string product_image { get; set; }
+
+        [DisplayName("產品分類")]
+        [Required]
+        public string product_catagory { get; set; }
     }
 }
