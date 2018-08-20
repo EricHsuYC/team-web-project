@@ -55,24 +55,36 @@ namespace WebProject.Controllers
 
         }
 
-        public ActionResult register()
+        public ActionResult Register()
         {
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult register(member member)
+        public ActionResult Register(member input_member)
         {
-            if ()
+            if (ModelState.IsValid == false)
             {
                 return View();
             }
+
+            var member = db.member.Where(m => m.member_account == input_member.member_account).FirstOrDefault();
+            if(member == null)
+            {
+                db.member.Add(input_member);
+                db.SaveChanges();
+                return RedirectToAction("Login");
+            }
             else
-                var member = db.member.Where(m=>)
-
-
+            {
+                ViewBag.Message = "此帳號已被註冊，請嘗試其他帳號";
                 return View();
+            }
+
+
+
+               
                 
 
 
