@@ -1,8 +1,10 @@
-﻿
+﻿@model WebProject.Models.member
+
+
 
 
 @{
-    ViewBag.Title = "會員註冊";
+    ViewBag.Title = "註冊帳號";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,7 +14,7 @@
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center my-3">註冊帳號</h4>
             <p class="text-center">Get started with fresh shopping expirence!</p>
-            <form>
+            <form action="@Url.Action("Register")" method="post">
 
                 <!-- form-group// -->
                 <div class="form-group input-group my-4">
@@ -21,7 +23,11 @@
                             <i class="fa fa-envelope fa-lg p-1"></i>
                         </span>
                     </div>
-                    <input name="" class="form-control" placeholder="電子信箱" type="email">
+                    @Html.EditorFor(model=>model.member_account,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "電子信箱(帳號)" }})
+                    @Html.ValidationMessageFor(m=>m.member_account,"",new {@class="text-danger"})
+                    @ViewBag.Message
+                    @*<input name="" class="form-control" placeholder="電子信箱" type="email">*@
                 </div>
                 <!-- form-group// -->
 
@@ -31,37 +37,49 @@
                             <i class="fa fa-user fa-lg p-1"></i>
                         </span>
                     </div>
-                    <input name="" class="form-control" placeholder="姓名" type="text">
+                    @Html.EditorFor(model=>model.member_name,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "姓名" }})
+                    @Html.ValidationMessageFor(m => m.member_name, "", new { @class = "text-danger" })
+                    @*<input name="" class="form-control" placeholder="姓名" type="text">*@
                 </div>
+
 
                 <!-- form-group// -->
                 <div class="form-group input-group my-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text p-2">
-                            <i class="fa fa-phone fa-lg p-1" ></i>
+                            <i class="fa fa-phone fa-lg p-1"></i>
                         </span>
                     </div>
-
-                    <input name="" class="form-control" placeholder="電話號碼" type="text">
+                    @Html.EditorFor(model=>model.member_phone,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "電話號碼" }})
+                    @Html.ValidationMessageFor(m => m.member_phone, "", new { @class = "text-danger" })
+                    @*<input name="" class="form-control" placeholder="電話號碼" type="text">*@
                 </div>
                 <!-- form-group// -->
 
                 <div class="form-group input-group my-4">
                     <div class="input-group-prepend ">
-                        <span class="input-group-text p-2 mx-auto" >
-                            <i class="fa fa-lock fa-lg p-1" ></i>
+                        <span class="input-group-text p-2 mx-auto">
+                            <i class="fa fa-lock fa-lg p-1"></i>
                         </span>
                     </div>
-                    <input class="form-control" placeholder="請輸入密碼" type="password">
+                    @Html.EditorFor(model=>model.member_password,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入密碼" } })
+                    @Html.ValidationMessageFor(m => m.member_password, "", new { @class = "text-danger" })
+                    @*<input class="form-control" placeholder="請輸入密碼" type="password">*@
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group my-4">
                     <div class="input-group-prepend mx-auto">
-                        <span class="input-group-text p-2 mx-auto" >
+                        <span class="input-group-text p-2 mx-auto">
                             <i class="fa fa-lock fa-lg p-1"></i>
                         </span>
                     </div>
-                    <input class="form-control" placeholder="請重複密碼" type="password">
+                    @Html.EditorFor(model=>model.confirm_password,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "請重複密碼" } })
+                    @Html.ValidationMessageFor(m => m.confirm_password, "", new { @class = "text-danger" })
+                    @*<input class="form-control" placeholder="請重複密碼" type="password">*@
                 </div>
                 <!-- form-group// -->
                 <div class="form-group m-3 mx-auto">
@@ -70,7 +88,7 @@
                 <!-- form-group// -->
                 <p class="text-center my-4">
                     已經有帳號嗎?
-                    <a href="" style="color: rgb(252, 159, 37)">點我登入</a>
+                    <a href="@Url.Action("Login")" style="color: rgb(252, 159, 37)">點我登入</a>
                 </p>
             </form>
         </article>
