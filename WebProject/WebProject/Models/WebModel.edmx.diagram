@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="team_web_projectModel.member" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.order_detail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.order_form" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="team_web_projectModel.product" Width="3" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.shopping_cart" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="team_web_projectModel.product" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
