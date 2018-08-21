@@ -94,6 +94,12 @@ namespace WebProject.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Cart()
+        {
+            return View();
+        }
+
+
 
         public ActionResult OrderList()
         {
