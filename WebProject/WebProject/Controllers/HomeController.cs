@@ -78,7 +78,7 @@ namespace WebProject.Controllers
             }
             else
             {
-                ViewBag.Message = "此帳號已被註冊，請嘗試其他帳號";
+                ViewBag.Message = "此電子信箱已被註冊，請嘗試其他電子信箱";
                 return View();
             }
                    
@@ -98,7 +98,9 @@ namespace WebProject.Controllers
         public ActionResult OrderList()
         {
             var user = appClass.Member;
-            var orders = db.
+            //找到該會員的訂單
+            var orders = db.order_form.Where(m => m.member_account == user).OrderByDescending(m=>m.order_date).ToList();
+            
 
             return View();
         }
