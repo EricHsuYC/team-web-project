@@ -56,6 +56,7 @@ html {
 
 * {
     /* border: 1px solid #ff8037 !important; */
+    font-family: "微軟正黑體", Arial, sans-serif;
     list-style-type: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -71,8 +72,9 @@ html {
 
 a,
 select {
+    font-family: "微軟正黑體", Arial, sans-serif;
     /* background-color: inherit !important; */
-    color: rgb(104, 104, 104)!important;
+    color: rgb(104, 104, 104) !important;
     text-decoration: none !important;
 }
 
