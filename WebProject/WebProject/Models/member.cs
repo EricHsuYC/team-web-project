@@ -29,10 +29,18 @@ namespace WebProject.Models
 
         [DisplayName("會員帳號")]
         [Required]
+        [EmailAddress]
         public string member_account { get; set; }
 
         [DisplayName("密碼")]
         [Required]
+        [StringLength(20,ErrorMessage ="密碼必須是3-20字元",MinimumLength =3)]
         public string member_password { get; set; }
+
+        [DisplayName("確認密碼")]
+        [Required]
+        [Compare("member_password", ErrorMessage = "兩次密碼輸入不相同，請重新確認密碼")]
+        public string confirm_password { get; set; }
+
     }
 }
