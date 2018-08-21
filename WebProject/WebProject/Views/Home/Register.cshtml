@@ -24,7 +24,7 @@
                         </span>
                     </div>
                     @Html.EditorFor(model=>model.member_account,
-                    new { htmlAttributes = new { @class = "form-control", @placeholder = "電子信箱(帳號)" }})
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = " 電子信箱(帳號)" }})
                     @Html.ValidationMessageFor(m=>m.member_account,"",new {@class="text-danger"})
                     @ViewBag.Message
                     @*<input name="" class="form-control" placeholder="電子信箱" type="email">*@
@@ -38,7 +38,7 @@
                         </span>
                     </div>
                     @Html.EditorFor(model=>model.member_name,
-                    new { htmlAttributes = new { @class = "form-control", @placeholder = "姓名" }})
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = " 姓名" }})
                     @Html.ValidationMessageFor(m => m.member_name, "", new { @class = "text-danger" })
                     @*<input name="" class="form-control" placeholder="姓名" type="text">*@
                 </div>
@@ -52,7 +52,7 @@
                         </span>
                     </div>
                     @Html.EditorFor(model=>model.member_phone,
-                    new { htmlAttributes = new { @class = "form-control", @placeholder = "電話號碼" }})
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = " 電話號碼" }})
                     @Html.ValidationMessageFor(m => m.member_phone, "", new { @class = "text-danger" })
                     @*<input name="" class="form-control" placeholder="電話號碼" type="text">*@
                 </div>
@@ -65,7 +65,7 @@
                         </span>
                     </div>
                     @Html.EditorFor(model=>model.member_password,
-                    new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入密碼" } })
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = " 請輸入密碼" } })
                     @Html.ValidationMessageFor(m => m.member_password, "", new { @class = "text-danger" })
                     @*<input class="form-control" placeholder="請輸入密碼" type="password">*@
                 </div>
@@ -77,7 +77,7 @@
                         </span>
                     </div>
                     @Html.EditorFor(model=>model.confirm_password,
-                    new { htmlAttributes = new { @class = "form-control", @placeholder = "請重複密碼" } })
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = " 請重複密碼" } })
                     @Html.ValidationMessageFor(m => m.confirm_password, "", new { @class = "text-danger" })
                     @*<input class="form-control" placeholder="請重複密碼" type="password">*@
                 </div>

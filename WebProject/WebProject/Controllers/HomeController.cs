@@ -81,17 +81,27 @@ namespace WebProject.Controllers
                 ViewBag.Message = "此帳號已被註冊，請嘗試其他帳號";
                 return View();
             }
-
-
-
-               
-                
-
-
+                   
+              
             
         }
 
 
+        public ActionResult Logout()
+        {
+            Session.Clear();
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult OrderList()
+        {
+            var user = appClass.Member;
+            var orders = db.
+
+            return View();
+        }
 
 
 
