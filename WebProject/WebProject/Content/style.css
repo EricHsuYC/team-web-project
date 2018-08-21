@@ -131,15 +131,15 @@ nav div {
      background-color: #ffb78e; 
 }*/
 #header .row{
-    background-image: url("img/banner01.jpg");
+    /*background-image: url("../image/home/banner02.jpg");*/ 
     background-size : cover;
 }
 
 #header {
     height: 20vw !important;
-    /* background-image: url("img/banner01.jpg"); */
+    background-image: url("../image/home/banner07.jpg"); 
     background-size : cover;
-    background-color: #ccc;
+    background-color: white;
     
     /* width: 95vw !important; */
     margin-bottom: 2vw !important;
