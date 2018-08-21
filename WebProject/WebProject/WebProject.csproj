@@ -102,6 +102,60 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\product\apple.jpg" />
+    <Content Include="image\product\A菜.jpg" />
+    <Content Include="image\product\banana.jpg" />
+    <Content Include="image\product\cabbage.jpg" />
+    <Content Include="image\product\corn.jpg" />
+    <Content Include="image\product\guava.jpg" />
+    <Content Include="image\product\kiwi.jpg" />
+    <Content Include="image\product\muskmelon.jpg" />
+    <Content Include="image\product\orange.jpg" />
+    <Content Include="image\product\peach.jpg" />
+    <Content Include="image\product\pineapple.jpg" />
+    <Content Include="image\product\starfruit.jpg" />
+    <Content Include="image\product\tomato.jpg" />
+    <Content Include="image\product\去骨雞腿.jpg" />
+    <Content Include="image\product\和牛肩小排.jpg" />
+    <Content Include="image\product\國產梅花豬.jpg" />
+    <Content Include="image\product\嫩肩大牛排.jpg" />
+    <Content Include="image\product\小白菜.jpg" />
+    <Content Include="image\product\小羔羊後腿心菲力.jpg" />
+    <Content Include="image\product\小羔羊排.jpg" />
+    <Content Include="image\product\小羔羊肉片.jpg" />
+    <Content Include="image\product\小韮菜.jpg" />
+    <Content Include="image\product\巨峰葡萄.jpg" />
+    <Content Include="image\product\帶葉玉米筍.jpg" />
+    <Content Include="image\product\帶骨牛小排.jpg" />
+    <Content Include="image\product\廣東A菜.jpg" />
+    <Content Include="image\product\戰斧牛排.jpg" />
+    <Content Include="image\product\檸檬.jpg" />
+    <Content Include="image\product\櫻桃.jpg" />
+    <Content Include="image\product\櫻桃鴨胸.jpg" />
+    <Content Include="image\product\洋蔥.jpg" />
+    <Content Include="image\product\無籽葡萄.jpg" />
+    <Content Include="image\product\牛板腱牛排.jpg" />
+    <Content Include="image\product\牛肋條.jpg" />
+    <Content Include="image\product\皇宮菜.jpg" />
+    <Content Include="image\product\筊白筍.jpg" />
+    <Content Include="image\product\節瓜.jpg" />
+    <Content Include="image\product\紅地球葡萄.jpg" />
+    <Content Include="image\product\紐約客牛排.jpg" />
+    <Content Include="image\product\紫高麗菜.jpg" />
+    <Content Include="image\product\茄子.jpg" />
+    <Content Include="image\product\菲力牛排.jpg" />
+    <Content Include="image\product\葡萄柚.jpg" />
+    <Content Include="image\product\蔓越莓.jpg" />
+    <Content Include="image\product\藍莓.jpg" />
+    <Content Include="image\product\蘿蔓.jpg" />
+    <Content Include="image\product\豬梅花肉片.jpg" />
+    <Content Include="image\product\雞中翅.jpg" />
+    <Content Include="image\product\雪紋豬肉.jpg" />
+    <Content Include="image\product\霜降牛五花.jpg" />
+    <Content Include="image\product\韭黃.jpg" />
+    <Content Include="image\product\韮菜花.jpg" />
+    <Content Include="image\product\黃地瓜.jpg" />
+    <Content Include="image\product\龍鬚菜.jpg" />
     <Content Include="Models\WebModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WebModel.Context.cs</LastGenOutput>
@@ -190,7 +244,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="image\home\" />
-    <Folder Include="image\product\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
