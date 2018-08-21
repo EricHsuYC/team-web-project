@@ -4,7 +4,12 @@
 	margin: 0!important;
 } */
 
-h1{
+
+#wrapper{
+    width:600px;
+}
+
+#pa-10 h1{
     font-size: 2em;
 }
 
@@ -34,8 +39,3 @@ i{
     border: none;
 }
 
-.wrapper{
-    /* background-color: rgb(185, 185, 185)!important;
-    margin-bottom: 300px!important; */
-
-}
