@@ -49,7 +49,7 @@
           <Property Name="product_description" Type="nvarchar" MaxLength="50" />
           <Property Name="product_details" Type="nvarchar" MaxLength="100" />
           <Property Name="product_image" Type="nvarchar" MaxLength="50" />
-          <Property Name="Product_catagory" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_catagory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
@@ -104,18 +104,6 @@
           <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="product">
-          <Key>
-            <PropertyRef Name="product_no" />
-          </Key>
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_price" Type="Int32" />
-          <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
             <PropertyRef Name="member_account" />
@@ -128,9 +116,21 @@
           <EntitySet Name="member" EntityType="Self.member" />
           <EntitySet Name="order_detail" EntityType="Self.order_detail" />
           <EntitySet Name="order_form" EntityType="Self.order_form" />
-          <EntitySet Name="product" EntityType="Self.product" />
           <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
+          <EntitySet Name="product" EntityType="team_web_projectModel.product" />
         </EntityContainer>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_no" />
+          </Key>
+          <Property Name="product_no" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Int32" />
+          <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -174,25 +174,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="product">
-            <EntityTypeMapping TypeName="team_web_projectModel.product">
-              <MappingFragment StoreEntitySet="product">
-                <ScalarProperty Name="Product_catagory" ColumnName="Product_catagory" />
-                <ScalarProperty Name="product_image" ColumnName="product_image" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_price" ColumnName="product_price" />
-                <ScalarProperty Name="product_description" ColumnName="product_description" />
-                <ScalarProperty Name="product_details" ColumnName="product_details" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="shopping_cart">
             <EntityTypeMapping TypeName="team_web_projectModel.shopping_cart">
               <MappingFragment StoreEntitySet="shopping_cart">
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
                 <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
                 <ScalarProperty Name="member_account" ColumnName="member_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="team_web_projectModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="product_catagory" ColumnName="product_catagory" />
+                <ScalarProperty Name="product_image" ColumnName="product_image" />
+                <ScalarProperty Name="product_details" ColumnName="product_details" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
