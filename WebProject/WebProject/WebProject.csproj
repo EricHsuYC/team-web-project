@@ -102,6 +102,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\home\logo4.png" />
+    <Content Include="image\home\sicons.png" />
     <Content Include="image\product\apple.jpg" />
     <Content Include="image\product\A菜.jpg" />
     <Content Include="image\product\banana.jpg" />
@@ -243,7 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="image\home\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - 鮮食吧 FRESH BAR</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,9 +35,9 @@
             <div class="row col-10 py-1 mx-auto">
                 <a class="col-auto ml-0 pl-0">My Demo Site</a>
                 <a class="col-auto pl-3" href="#">email@email.com</a>
-                <a class="col-auto pl-3 ml-auto" href="#">Login</a>
-                <a class="col-auto pl-3" href="#">My Account</a>
-                <a class="col-auto pl-3" href="#">Watch List</a>
+                <a class="col-auto pl-3 ml-auto" href="#">@Html.ActionLink("Login", "Login", "Home")</a>
+                <a class="col-auto pl-3" href="#">@Html.ActionLink("Register", "Register", "Home")</a>
+                <a class="col-auto pl-3" href="#">@Html.ActionLink("Product List", "Index", "Home")</a>
                 <div class="dropdown col-auto">
                     <a class="pl-3 dropdown-toggle " href="#" id="dropdownMenuButton1" role="button" data-toggle="dropdown">Currency</a>
                     <div class="dropdown-menu" labelledby="dropdownMenuButton1">
@@ -62,7 +62,10 @@
         <div id="navbody" class="container-fluid mx-auto">
             <div class="row col-10 align-items-center py-2 my-3 mx-auto">
                 <div class="col-auto ml-0 pl-0">
-                    <h3>Demo</h3>
+                    @*<h3>Demo</h3>*@
+                    <a href="@Url.Action("Index", "Home")" class="logo">
+                        <img src='@Url.Content("~/image/home/logo4.png")' />
+                    </a>
                 </div>
                 <div class="col-auto ml-auto">
                     <form class="form-inline my-0 my-lg-0">
@@ -85,7 +88,10 @@
                     </form>
                 </div>
                 <div class="col-auto pr-0 pl-3">
-                    <a href="#">shopping cart</a>
+                    @*<a href="#">shopping cart</a>*@
+                    <a href="@Url.Action("Login", "Home")" class="logo">
+                        <img src='@Url.Content("~/image/home/sicons.png")' />
+                    </a>
                 </div>
             </div>
 

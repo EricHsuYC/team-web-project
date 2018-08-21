@@ -1,9 +1,9 @@
-.w-100{
-    /* width:55%!important; */
+/*.w-100{
+     width:55%!important; 
 }
 :root {
-    /* font-size: 16px !important; */
-}
+     font-size: 16px !important; 
+}*/
 
 html {
     background-size : cover;
@@ -12,15 +12,15 @@ html {
 
   @media only screen and (min-width: 340px) {
     html {
-      font-size: 8px !important;
-      background-color: #43acb8 !important;
+        font-size: 8px !important;
+        background-color: rgb(255, 153, 0) !important;
     }
   }
   
   @media only screen and (min-width: 576px) {
     html {
-      font-size: 10px !important;
-      background-color: #43acb8 !important;
+        font-size: 10px !important;
+        background-color: rgb(255, 153, 0) !important;
     }
   }
   
@@ -95,22 +95,22 @@ nav div {
     /* padding-bottom:0.25rem !important;  */
 }
 
-nav .row {
-    /* width: 95vw !important; */
-}
+/*nav .row {
+     width: 95vw !important; 
+}*/
 
 #navbody {
     background-color: rgb(255, 255, 255);
     /* border-bottom: 1px solid rgb(187, 187, 187); */
 }
 
-#navbody #spacer{
-    /* width: 95vw !important; */
-    /* border-bottom: 1px solid #ccc; */
+/*#navbody #spacer{
+     width: 95vw !important; 
+     border-bottom: 1px solid #ccc; 
 
 
 
-}
+}*/
 
 #navbody h3 {
     color: black;
@@ -127,9 +127,9 @@ nav .row {
 
 
 
-#navfooter {
-    /* background-color: #ffb78e; */
-}
+/*#navfooter {
+     background-color: #ffb78e; 
+}*/
 #header .row{
     background-image: url("img/banner01.jpg");
     background-size : cover;
@@ -169,13 +169,13 @@ nav .row {
     border: 1px solid black;
 }
 
-#shop_main {
+/*#shop_main {
 
-}
+}*/
 
-#shop {
-    /* width: 95vw !important; */
-}
+/*#shop {
+     width: 95vw !important; 
+}*/
 
 
 #shop_sidebar {
@@ -203,10 +203,10 @@ nav .row {
 
 
 
-#hl-row #hl-card {
+/*#hl-row #hl-card {
 
-    /* background-color: ; */
-}
+     background-color: ; 
+}*/
 
 #p-card{
 
@@ -246,11 +246,11 @@ nav .row {
     background-color: rgb(177, 255, 51);
 }
 
-#shoprow3 {
-    /* margin-left: -10px !important; */
-    /* margin-right: -10px !important; */
+/*#shoprow3 {
+     margin-left: -10px !important; 
+     margin-right: -10px !important; 
 
-}
+}*/
 
 #shoprow3 .col{
     padding: 10px !important;

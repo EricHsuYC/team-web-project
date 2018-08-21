@@ -1,8 +1,8 @@
 ﻿ @{ ViewBag.Title = "會員登入"; Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h2>Login</h2>
+@*<h2>Login</h2>*@
 
-<div class="container-fluid">
+@*<div class="container-fluid">
     <div class="row col-8 mx-auto">
         <form action="@Url.Action(" Login ")" method="post" class="mx-auto">
             <div class="form-horizontal">
@@ -29,4 +29,49 @@
             </div>
         </form>
     </div>
+</div>*@
+
+
+<div class="container-fluid mx-auto ">
+    
+        <div class="card mx-auto " style="width:600px; border:2px solid #dbdbdb;">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center my-3">登入帳號</h4>
+                <p class="text-center">Get started with fresh shopping expirence!</p>
+                <form action="@Url.Action(" Login ")" method="post" class="mx-auto">
+
+    <!-- form-group// -->
+    <div class="form-group input-group my-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text p-2">
+                <i class="fa fa-user fa-lg p-1"></i>
+            </span>
+        </div>
+        <input name="" class="form-control" placeholder="電子信箱" type="email">
+    </div>
+    <!-- form-group// -->
+
+    <div class="form-group input-group my-4">
+        <div class="input-group-prepend ">
+            <span class="input-group-text p-2 mx-auto">
+                <i class="fa fa-lock fa-lg p-1"></i>
+            </span>
+        </div>
+        <input class="form-control" placeholder="請輸入密碼" type="password">
+    </div>
+    <!-- form-group// -->
+    <!-- form-group// -->
+    <div class="form-group m-3 mx-auto">
+        <button type="submit" class="btn btn-primary btn-block mx-auto p-2" style="background-color: rgb(19, 197, 182); border : 0px"> 登入 </button>
+    </div>
+    <!-- form-group// -->
+    <p class="text-center my-4">
+        還沒帳號嗎?
+        <a href="" style="color: rgb(252, 159, 37)">點我註冊</a>
+    </p>
+</form>
+            </article>
+        </div>
+        <!-- card.// -->
+        
 </div>
