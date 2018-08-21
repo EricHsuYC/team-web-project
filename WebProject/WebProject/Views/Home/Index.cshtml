@@ -165,7 +165,7 @@
         <!-- shop main area start -->
         <div id="shop_main" class="col h-100">
             <!-- highlighted product start -->
-            <div id="hl-row" class="row">
+            @*<div id="hl-row" class="row">
                 <div id="hl-card" class="col-7 row">
                     <div class="col">
                         <img class="w-100" src="img/product06.jpg" alt="" srcset="">
@@ -184,7 +184,7 @@
                     <img class="w-100" src="img/product07.jpg" alt="" srcset="">
                 </div>
 
-            </div>
+            </div>*@
             <!-- highlighted product end -->
 
 
@@ -205,13 +205,13 @@
                 @foreach (var item in Model)
                 {
                     <div id="p-card" class="col-md-4 col-6">
-                        <img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
+                        <a href="#"><img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
                         <div class="float-left w-100 row mt-3">
                             <p class="col-12 mx-auto text-center">@item.product_name</p>
                             <h3 class="col-12 mx-auto  text-center">@item.product_description</h3>
                             <p class="col-12 mx-auto text-center">@item.product_price $</p>
                         </div>
-                        <div id="card_height" class=""></div>
+                        <div id="card_height" class=""></div></a>
                     </div>
 
 
