@@ -43,14 +43,27 @@
                     <span class="text-uppercase">數量: </span>
                     <input class="input" type="hidden" name="productNo" value="@Model.product_no" id="productNo">
                     <input class="input" type="number" name="qantity" value="1" id="name">
+                    <input class="input" type="hidden" name="productName" value="@ViewBag.productName" id="productName">
+
+                    
 
                 </div>
                 @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
 
                 <!-- 置底的BUY -->
                 <div class="align-self-end col-5">
+                    @{
+                        if (ViewBag.AllowBuy == "ture")
+                        {
+                            <button type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
 
-                    <button type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
+
+                        }
+                    }
                     @*<a href="@Url.Action("Cart",new {productNo = Model.product_no, quantity = 1})" class="btn btn-info d-block ml-auto text-white" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:20px; line-height:30px; border-radius:20px!important;"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</a>*@
                     @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
                 </div>

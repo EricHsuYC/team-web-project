@@ -17,6 +17,13 @@ namespace WebProject.App_Class
 
         }
 
+        public static string Account
+        {
+            get { return (HttpContext.Current.Session["Account"] == null) ? "" : HttpContext.Current.Session["Account"].ToString(); }
+            set { HttpContext.Current.Session["Account"] = value; }
+
+        }
+
 
 
     }

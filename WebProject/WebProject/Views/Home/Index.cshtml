@@ -227,7 +227,7 @@
                 @foreach (var item in Model)
                 {
                     <div id="p-card" class="col-md-4 col-6">
-                        <a href="@Url.Action("ProductDetail",new { productName = @item.product_name })"><img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
+                        <a href="@Url.Action("ProductDetail",new { productName = @item.product_name, productNo = @item.product_no })"><img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
                         <div class="float-left w-100 row mt-3">
                             <p class="col-12 mx-auto text-center">@item.product_name</p>
                             <h3 class="col-12 mx-auto  text-center">@item.product_description</h3>

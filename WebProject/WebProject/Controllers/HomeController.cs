@@ -12,7 +12,7 @@ namespace WebProject.Controllers
     {
 
         team_web_projectEntities db = new team_web_projectEntities();
-        
+
 
         // GET: Home
         public ActionResult Index()
@@ -46,6 +46,8 @@ namespace WebProject.Controllers
             {
                 //Session["Member"] = Member.member_name;
                 appClass.Member = Member.member_name.ToString();
+                appClass.Account = Member.member_name.ToString();
+
 
 
                 return RedirectToAction("Index");
@@ -70,7 +72,7 @@ namespace WebProject.Controllers
             }
 
             var member = db.member.Where(m => m.member_account == input_member.member_account).FirstOrDefault();
-            if(member == null)
+            if (member == null)
             {
                 db.member.Add(input_member);
                 db.SaveChanges();
@@ -81,9 +83,9 @@ namespace WebProject.Controllers
                 ViewBag.Message = "此電子信箱已被註冊，請嘗試其他電子信箱";
                 return View();
             }
-                   
-              
-            
+
+
+
         }
 
 
@@ -94,7 +96,7 @@ namespace WebProject.Controllers
             return RedirectToAction("Index");
         }
 
-        
+
         //顯示購物車
         public ActionResult Cart()
         {
@@ -107,32 +109,47 @@ namespace WebProject.Controllers
 
 
         [HttpPost]
-        public ActionResult AddCart(string productNo, int qantity)
+        public ActionResult AddCart(string productNo, int qantity, string productName)
         {
 
             var user = appClass.Member;
-            if(appClass.Member == "")
+            if (appClass.Member == "")
             {
-                ViewBag.Alert = "請先登入!";
+                //ViewBag.Alert = "請先登入!";
                 return RedirectToAction("Login");
             }
             else
             {
 
-            
-            shopping_cart newItem = new shopping_cart();
-            var buyer = db.member.Where(m=>m.member_name == user).FirstOrDefault();
-            newItem.member_account = buyer.member_account;
-            newItem.product_no = productNo;
-            newItem.product_quantity = qantity;
-            db.shopping_cart.Add(newItem);
-            db.SaveChanges();
-            
+
+                shopping_cart newItem = new shopping_cart();
+                var buyer = db.member.Where(m => m.member_name == user).FirstOrDefault();
+                newItem.member_account = buyer.member_account;
+                var item = db.shopping_cart.Where(m => m.product_no == productNo).FirstOrDefault();
+
+                //若購物車內已有相同商品則只更改數量
+                if (item == null)
+                {
+                    newItem.product_no = productNo;
+                    newItem.product_quantity = qantity;
+                    db.shopping_cart.Add(newItem);
+                    db.SaveChanges();
+
+                }
+                else
+                {
+                    item.product_quantity = qantity;
+                    db.SaveChanges();
+                }
+
+                ViewBag.Alert = "true";
+                return RedirectToAction("productdetail", new { productName = productName });
+
 
 
 
             }
-            return new EmptyResult();
+
 
         }
 
@@ -142,19 +159,29 @@ namespace WebProject.Controllers
         {
             var user = appClass.Member;
             //找到該會員的訂單
-            var orders = db.order_form.Where(m => m.member_account == user).OrderByDescending(m=>m.order_date).ToList();
-            
+            var orders = db.order_form.Where(m => m.member_account == user).OrderByDescending(m => m.order_date).ToList();
+
 
             return View();
         }
 
 
         //產品頁面
-        public ActionResult ProductDetail(string productName)
+        public ActionResult ProductDetail(string productName, string productNo)
         {
             ViewBag.productName = productName;
             var productdetail = db.product.Where(m => m.product_name == productName).FirstOrDefault();
-            return View(productdetail);
+            var cartitem = db.shopping_cart.Where(m => m.member_account == appClass.Account & m.product_no == productNo).FirstOrDefault();
+            if(cartitem == null)
+            {
+                ViewBag.AllowBuy = "true";
+            }
+            else
+            {
+                ViewBag.AllowBuy = "fale";
+
+            }
+            return View();
 
         }
 
