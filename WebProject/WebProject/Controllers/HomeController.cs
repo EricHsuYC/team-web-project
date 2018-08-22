@@ -94,13 +94,18 @@ namespace WebProject.Controllers
             return RedirectToAction("Index");
         }
 
+        
+        //購物車
         public ActionResult Cart()
         {
-            return View();
+
+            var user = appClass.Member;
+            var CartList = db.shopping_cart.Where(m => m.member_account == user).ToList();
+            return View(CartList);
         }
 
 
-
+        //會員的訂單列表
         public ActionResult OrderList()
         {
             var user = appClass.Member;
@@ -110,6 +115,17 @@ namespace WebProject.Controllers
 
             return View();
         }
+
+
+        //產品頁面
+        public ActionResult ProductDetail(string productName)
+        {
+            ViewBag.productName = productName;
+            var productdetail = db.product.Where(m => m.product_name == productName).FirstOrDefault();
+            return View(productdetail);
+
+        }
+
 
 
 

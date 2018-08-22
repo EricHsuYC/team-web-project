@@ -1,0 +1,39 @@
+﻿@model WebProject.Models.product
+
+@{
+    
+    ViewBag.Title = ViewBag.productName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- 左邊圖片 -->
+        <div class="col-6">
+            <img src="~/image/product/@Model.product_image" class="w-75 d-block mx-auto">
+        </div>
+        <!-- 右邊說明 -->
+        <div class="col-6 row">
+            <div id="catagory" class="col-12">
+                <span class="badge badge-pill badge-warning">促銷</span>
+                <span class="badge badge-pill badge-success">@Model.product_catagory</span>
+            </div>
+            <div class="col-12">
+                <h3>@ViewBag.productName</h3>
+            </div>
+            <div id="description" class="col-12">@Model.product_description</div>
+            <div id="detail" class="col-12">@Model.product_details</div>
+            <div id="price" class="col-12">@Model.product_price</div>
+            <!-- 置底的BUY -->
+            <div class="align-self-end col-12">
+                <!-- 購買連結還沒做 -->
+                <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto">加入購物車</a>
+                @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
+            </div>
+
+
+        </div>
+    </div>
+</div>
