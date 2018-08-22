@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>@ViewBag.Title - 鮮食吧 FRESH BAR</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+          crossorigin="anonymous">
+    
+    <!-- Javascript jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <!-- Javascript jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+                        // $(function () {
+                        //     $('.selectpicker').selectpicker();
+                        // });
+    </script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style></style>
+
+</head>
+
+<body>
+    <nav>
+        <!-- navheader start -->
+        <div id="navheader" class="container-fluid mx-auto">
+            <div class="row col-10 py-1 mx-auto">
+                <a href="#" class="col-auto ml-0 pl-0">My Demo Site</a>
+                <a href="#" class="col-auto pl-3" href="#">email@email.com</a>
+                <a href="#" class="col-auto pl-3 ml-auto" href="#">Login</a>
+                <a href="#" class="col-auto pl-3" href="#">My Account</a>
+                <a href="#" class="col-auto pl-3" href="#">Watch List</a>
+
+                <div class="dropdown col-auto">
+                    <a class="pl-3 dropdown-toggle " href="#" id="dropdownMenuButton1" role="button" data-toggle="dropdown">Currency</a>
+                    <div class="dropdown-menu" labelledby="dropdownMenuButton1">
+                        <a href="#" class="dropdown-item">123</a>
+                        <a href="#" class="dropdown-item">321</a>
+                        <a href="#" class="dropdown-item">123</a>
+                    </div>
+                </div>
+
+                <div class="dropdown col-auto px-0">
+                    <a class="pl-3 dropdown-toggle " href="#" id="dropdownMenuButton2" role="button" data-toggle="dropdown">English</a>
+                    <div class="dropdown-menu" labelledby="dropdownMenuButton2">
+                        <a href="#" class="dropdown-item">123</a>
+                        <a href="#" class="dropdown-item">321</a>
+                        <a href="#" class="dropdown-item">123</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- navheader end -->
+        <!-- navbody start -->
+        <div id="navbody" class="container-fluid mx-auto">
+            <div class="row col-10 align-items-center py-2 my-3 mx-auto">
+                <div class="col-auto ml-0 pl-0">
+                   
+                    <h3>Demo</h3>
+
+                </div>
+                <div class="col-auto ml-auto">
+                    <form class="form-inline my-0 my-lg-0">
+                        <input class="form-control form-control-sm mr-sm-2 py-1" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-sm mr-sm-2 py-1" type="search" placeholder="All Catagories" aria-label="Search">
+
+                        <div id="catagoryDropdown" class="dropdown">
+                            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item text-center" href="#">CatagoryA</a>
+                                <a class="dropdown-item text-center" href="#">CatagoryB</a>
+                                <a class="dropdown-item text-center" href="#">CatagoryC</a>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-sm my-0 py-1 ml-2" type="submit">Search</button>
+
+                    </form>
+                </div>
+                <div class="col-auto pr-0 pl-3">
+                    <a href="#">shopping cart</a>
+                </div>
+
+            </div>
+
+            <div id="spacer" class="h-0 mx-auto"></div>
+
+        </div>
+        <!-- navbody end -->
+       
+
+    </nav>
+    <!-- nav end -->
+    
+    <!-- shop area start -->
+    <!-- @RenderBody() -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="container-fluid mx-auto mt-5"  >
+        <div class="card mx-auto " style= "width:600px; border:2px solid #dbdbdb; border-radius: 30px!important;">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center my-3">填寫收件資料</h4>
+                <p class="text-center">Fill in the receipt information and let us serve you.</p>
+                <form action="@Url.Action("Register")" method="post">
+    
+                    <!-- form-group// -->
+                    <!-- <div class="form-group input-group my-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text p-2">
+                                <i class="fa fa-envelope fa-lg p-1"></i>
+                            </span>
+                        </div>
+                        @Html.EditorFor(model=>model.member_account,
+                        new { htmlAttributes = new { @class = "form-control", @placeholder = " 電子信箱(帳號)" }})
+                        @Html.ValidationMessageFor(m=>m.member_account,"",new {@class="text-danger"})
+                        @ViewBag.Message
+                        <input name="" class="form-control" placeholder="電子信箱" type="email">
+                    </div> -->
+                    <!-- form-group// -->
+    
+                    <div class="form-group input-group my-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text p-2">
+                                <i class="fa fa-user fa-lg p-1"></i>
+                            </span>
+                        </div>
+                        <!-- @Html.EditorFor(model=>model.recipient_name,
+                        new { htmlAttributes = new { @class = "form-control", @placeholder = " 收件人姓名" }})
+                        @Html.ValidationMessageFor(m => m.recipient_name, "", new { @class = "text-danger" }) -->
+                        <input name="" class="form-control" placeholder="收件人姓名" type="text">
+                    </div>
+    
+    
+                    <!-- form-group// -->
+                    <div class="form-group input-group my-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text p-2">
+                                <i class="fa fa-phone fa-lg p-1"></i>
+                            </span>
+                        </div>
+                        <!-- @Html.EditorFor(model=>model.recipient_phone,
+                        new { htmlAttributes = new { @class = "form-control", @placeholder = " 電話號碼" }})
+                        @Html.ValidationMessageFor(m => m.recipient_phone, "", new { @class = "text-danger" }) -->
+                        <input name="" class="form-control" placeholder="電話號碼" type="text">
+                    </div>
+                    <!-- form-group// -->
+    
+                    <div class="form-group input-group my-4">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text p-2 mx-auto">
+                                <i class="fas fa-address-card fa-lg p-1"></i>
+                            </span>
+                        </div>
+                        <!-- @Html.EditorFor(model=>model.recipient_address,
+                        new { htmlAttributes = new { @class = "form-control", @placeholder = " 收件地址" } })
+                        @Html.ValidationMessageFor(m => m.recipient_address, "", new { @class = "text-danger" }) -->
+                        <input name="" class="form-control" placeholder="收件地址" type="text">
+                    </div>
+                    <!-- form-group// -->
+                    <!-- <div class="form-group input-group my-4">
+                        <div class="input-group-prepend mx-auto">
+                            <span class="input-group-text p-2 mx-auto">
+                                <i class="fa fa-lock fa-lg p-1"></i>
+                            </span>
+                        </div>
+                        @Html.EditorFor(model=>model.confirm_password,
+                        new { htmlAttributes = new { @class = "form-control", @placeholder = " 請重複密碼" } })
+                        @Html.ValidationMessageFor(m => m.confirm_password, "", new { @class = "text-danger" })
+                        <input class="form-control" placeholder="請重複密碼" type="password">
+                    </div> -->
+                    <!-- form-group// -->
+                    <div class="form-group m-3 mx-auto mb-5">
+                        <button type="submit" class="btn btn-primary btn-block mx-auto p-2" style="background-color: rgb(19, 197, 182); border : 0px"> 送出 </button>
+                    </div>
+                    <!-- form-group// -->
+                    <!-- <p class="text-center my-4">
+                        已經有帳號嗎?
+                        <a href="@Url.Action("Login")" style="color: rgb(252, 159, 37)">點我登入</a>
+                    </p> -->
+                </form>
+            </article>
+        </div>
+        <!-- card.// -->
+    
+    </div>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- shop area end -->
+    <div id="footer" class="container-fluid  mt-5 py-4">
+        <div id="footerrow" class="row col-10 mx-auto px-4 py-5">
+            <div class="col-5">
+                <h4>KEEP IN TOUCH</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil vitae odit quas error molestias illum!</p>
+            </div>
+            <div class="col pl-3">
+                <h4>INFORMATION</h4>
+                <p>Lorem, ipsum.</p>
+                <p>Lorem, ipsum.</p>
+
+                <p>Lorem, ipsum.</p>
+
+                <p>Lorem, ipsum.</p>
+
+
+            </div>
+            <div class="col pl-3">
+                <h4>MY ACCOUNT</h4>
+                <p>Lorem, ipsum.</p>
+
+                <p>Lorem, ipsum.</p>
+
+                <p>Lorem, ipsum.</p>
+
+                <p>Lorem, ipsum.</p>
+
+
+            </div>
+            <div class="col pl-3 d-flex flex-column">
+                <h4>NEWSLETTER</h4>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <div class="input-group">
+                    <input type="text" class="form-control p-2 mt-auto" placeholder="Enter your e-mail">
+                    <div class="input-group-append">
+                        <button class="btn" type="button" id="button-addon2">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
