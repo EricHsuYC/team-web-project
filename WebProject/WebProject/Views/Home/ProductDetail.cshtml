@@ -8,32 +8,47 @@
 
 
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid mx-auto mt-4">
+    <div class="row mx-auto">
         <!-- 左邊圖片 -->
-        <div class="col-6">
-            <img src="~/image/product/@Model.product_image" class="w-75 d-block mx-auto">
+        <div class="col-7">
+            <img src="~/image/product/@Model.product_image" class="w-50 d-block mx-auto">
         </div>
         <!-- 右邊說明 -->
-        <div class="col-6 row">
+        <div class="col-5 row">
             <div id="catagory" class="col-12">
-                <span class="badge badge-pill badge-warning">促銷</span>
-                <span class="badge badge-pill badge-success">@Model.product_catagory</span>
+                <span class="badge badge-pill badge-warning rounded align-bottom" style="font-size:16px; width:5%; line-height:22px;">促銷</span>
+                <span class="badge badge-pill badge-success rounded align-bottom" style="font-size:16px; width:5%; line-height:22px;">@Model.product_catagory</span>
             </div>
             <div class="col-12">
-                <h3>@ViewBag.productName</h3>
+                <h2>@ViewBag.productName</h2>
             </div>
-            <div id="description" class="col-12">@Model.product_description</div>
-            <div id="detail" class="col-12">@Model.product_details</div>
-            <div id="price" class="col-12">@Model.product_price</div>
-            <!-- 置底的BUY -->
-            <div class="align-self-end col-12">
-                <!-- 購買連結還沒做 -->
-                <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto">加入購物車</a>
-                @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
-            </div>
+            <div class="col-12 text-danger">
+                <span class="badge badge-pill badge-danger rounded" style="font-size:16px; width:6%; line-height:22px;">促銷價</span>
+                <div id="price" class="col"><h3>NT$@Model.product_price</h3></div>
+                </div>
+                @*<div id="price" class="col-12 text-danger">促銷價<h3>NT$@Model.product_price</h3></div>*@
+                <div id="description" class="col-12">@Model.product_description</div>
 
 
-        </div>
+                <div id="detail" class="col-11"><p>Brand: Fresh Bar<p></div>
+                <div id="detail" class="col-11">@Model.product_details</div>
+                <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam consequatur nostrum odio eaque magni, quis pariatur dicta commodi, similique animi maiores explicabo quas accusantium sit ea unde exercitationem labore quaerat odit excepturi, ullam nesciunt obcaecati error!</p>
+                <div id="price" class="col-12">
+                    <span class="text-uppercase">數量: </span>
+                    <input class="input" type="number">
+                </div>
+                @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
+
+                <!-- 置底的BUY -->
+                <div class="align-self-end col-5">
+                    <!-- 購買連結還沒做 -->
+
+                    <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto">加入購物車</a>
+                    @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
+                </div>
+
+
+            </div>
     </div>
 </div>
