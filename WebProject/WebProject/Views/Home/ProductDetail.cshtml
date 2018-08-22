@@ -43,7 +43,7 @@
                     <span class="text-uppercase">數量: </span>
                     <input class="input" type="hidden" name="productNo" value="@Model.product_no" id="productNo">
                     <input class="input" type="number" name="qantity" value="1" id="name">
-                    <input class="input" type="hidden" name="productName" value="@ViewBag.productName" id="productName">
+                    <input class="input" type="hidden" name="productName" value="@Model.product_name" id="productName">
 
                     
 
@@ -53,14 +53,14 @@
                 <!-- 置底的BUY -->
                 <div class="align-self-end col-5">
                     @{
-                        if (ViewBag.AllowBuy == "ture")
+                        if (ViewBag.AllowBuy == "true")
                         {
                             <button type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
 
                         }
                         else
                         {
-                            <button type="submit" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
+                            <button type="button" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
 
                         }
                     }

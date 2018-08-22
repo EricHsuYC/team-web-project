@@ -46,7 +46,7 @@ namespace WebProject.Controllers
             {
                 //Session["Member"] = Member.member_name;
                 appClass.Member = Member.member_name.ToString();
-                appClass.Account = Member.member_name.ToString();
+                appClass.Account = Member.member_account.ToString();
 
 
 
@@ -123,13 +123,14 @@ namespace WebProject.Controllers
 
 
                 shopping_cart newItem = new shopping_cart();
-                var buyer = db.member.Where(m => m.member_name == user).FirstOrDefault();
-                newItem.member_account = buyer.member_account;
+                //var buyer = db.member.Where(m => m.member_name == user).FirstOrDefault();
+                
                 var item = db.shopping_cart.Where(m => m.product_no == productNo).FirstOrDefault();
 
                 //若購物車內已有相同商品則只更改數量
                 if (item == null)
                 {
+                    newItem.member_account = appClass.Account;
                     newItem.product_no = productNo;
                     newItem.product_quantity = qantity;
                     db.shopping_cart.Add(newItem);
@@ -143,7 +144,7 @@ namespace WebProject.Controllers
                 }
 
                 ViewBag.Alert = "true";
-                return RedirectToAction("productdetail", new { productName = productName });
+                return RedirectToAction("ProductDetail", new { productName = productName, productNo = productNo});
 
 
 
@@ -171,17 +172,17 @@ namespace WebProject.Controllers
         {
             ViewBag.productName = productName;
             var productdetail = db.product.Where(m => m.product_name == productName).FirstOrDefault();
-            var cartitem = db.shopping_cart.Where(m => m.member_account == appClass.Account & m.product_no == productNo).FirstOrDefault();
+            var cartitem = db.shopping_cart.Where(m => m.member_account == appClass.Account && m.product_no == productNo).FirstOrDefault();
             if(cartitem == null)
             {
                 ViewBag.AllowBuy = "true";
             }
             else
             {
-                ViewBag.AllowBuy = "fale";
+                ViewBag.AllowBuy = "false";
 
             }
-            return View();
+            return View(productdetail);
 
         }
 
