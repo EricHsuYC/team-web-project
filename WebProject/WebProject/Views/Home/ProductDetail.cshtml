@@ -1,7 +1,7 @@
 ﻿@model WebProject.Models.product
 
 @{
-    
+
     ViewBag.Title = ViewBag.productName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -34,24 +34,26 @@
             <div id="detail" class="col-12">
                 <p>Brand: Fresh Bar<p>
 
-                </div>
+            </div>
             <div id="detail" class="col-12">@Model.product_details</div>
             <p class="w-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam consequatur nostrum odio eaque magni, quis pariatur dicta commodi, similique animi maiores explicabo quas accusantium sit ea unde exercitationem labore quaerat odit excepturi, ullam nesciunt obcaecati error!</p>
             <p class="w-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia officia mollitia culpa perferendis voluptatum, modi assumenda neque facere. Inventore, quaerat eum? Ex repudiandae id aliquam velit labore, nostrum eum commodi.</p>
-            <div id="price" class="col-12">
-                <span class="text-uppercase">數量: </span>
-                <input class="input" type="number">
-            </div>
-            @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
+            <form action="@Url.Action("AddCart",new {productNo = 1, quantity = 1})" method="get" class="mx-auto col-12">
+                <div id="price" class="col-12">
+                    <span class="text-uppercase">數量: </span>
+                    <input class="input" type="number" name="qantity" value="1" id="name">
 
-            <!-- 置底的BUY -->
-            <div class="align-self-end col-5">
-                <!-- 購買連結還沒做 -->
+                </div>
+                @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
 
-                <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto text-white" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:20px; line-height:30px; border-radius:20px!important;"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</a>
-                @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
-            </div>
+                <!-- 置底的BUY -->
+                <div class="align-self-end col-5">
 
+                    <button type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
+                    @*<a href="@Url.Action("Cart",new {productNo = Model.product_no, quantity = 1})" class="btn btn-info d-block ml-auto text-white" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:20px; line-height:30px; border-radius:20px!important;"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</a>*@
+                    @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
+                </div>
+            </form>
 
         </div>
     </div>

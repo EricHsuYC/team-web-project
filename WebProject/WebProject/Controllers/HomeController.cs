@@ -104,18 +104,33 @@ namespace WebProject.Controllers
             return View(CartList);
         }
 
+
+
+        //[HttpPost]
         public ActionResult AddCart(string productNo, int qantity)
         {
 
             var user = appClass.Member;
-            shopping_cart newItem = new shopping_cart;
+            if(user == "")
+            {
+                ViewBag.Alert = "請先登入!";
+                RedirectToAction("Login");
+            }
+            else
+            {
+
+            
+            shopping_cart newItem = new shopping_cart();
             newItem.member_account = user;
             newItem.product_no = productNo;
             newItem.product_quantity = qantity;
             db.shopping_cart.Add(newItem);
             db.SaveChanges();
+            return new EmptyResult();
 
-            return View();
+
+            }
+            return new EmptyResult();
         }
 
 
