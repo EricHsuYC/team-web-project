@@ -142,8 +142,7 @@ namespace WebProject.Controllers
                     item.product_quantity = qantity;
                     db.SaveChanges();
                 }
-
-                ViewBag.Alert = "true";
+                TempData["Bought"] = "true";
                 return RedirectToAction("ProductDetail", new { productName = productName, productNo = productNo});
 
 

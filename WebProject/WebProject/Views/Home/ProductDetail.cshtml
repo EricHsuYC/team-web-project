@@ -6,7 +6,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+    if (TempData["Bought"] != null)
+    {
+        <script>
+        $(function () {
+            window.onload = $('#callPrompt').click();
+        });
+        </script>
+    }
+    else
+    {
 
+    }
+}
 
 <div class="container-fluid mx-auto mt-4">
     <div class="row col-10 mx-auto">
@@ -45,7 +58,7 @@
                     <input class="input" type="number" name="qantity" value="1" id="name">
                     <input class="input" type="hidden" name="productName" value="@Model.product_name" id="productName">
 
-                    
+
 
                 </div>
                 @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
@@ -55,12 +68,12 @@
                     @{
                         if (ViewBag.AllowBuy == "true")
                         {
-                            <button type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
+                            <button id="callPrompt" type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
 
                         }
                         else
                         {
-                            <button type="button" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
+                            <button id="callPrompt" type="button" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
 
                         }
                     }
