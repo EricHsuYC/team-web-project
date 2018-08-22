@@ -48,7 +48,7 @@
             <div class="align-self-end col-5">
                 <!-- 購買連結還沒做 -->
 
-                <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</a>
+                <a href="@Url.Action("Cart",new {productName = @ViewBag.productName, quantity = 1})" class="btn btn-info d-block ml-auto text-white" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:20px; line-height:30px; border-radius:20px!important;"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</a>
                 @*<button type="button" class="btn btn-info d-block ml-auto">BUY</button>*@
             </div>
 

@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
           crossorigin="anonymous">
     @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>*@
+        crossorigin="anonymous"></script>*@
+    
+    <!-- Javascript jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
@@ -21,9 +24,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-                // $(function () {
-                //     $('.selectpicker').selectpicker();
-                // });
+                        // $(function () {
+                        //     $('.selectpicker').selectpicker();
+                        // });
     </script>
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
     <style></style>
@@ -103,55 +106,53 @@
         <!-- navbody end -->
         <!-- navfooter start -->
         @*<div id="navfooter " class="container-fluid mx-auto py-2 ">
-            <ul class="row col-10 justify-content-center align-items-center mx-auto my-auto">
-                <li class="col-auto pl-0">
-                    <a href="#">HOME</a>
-                </li>
-                <li class="col-auto pl-5">
-                    <a href="#">HOME</a>
-                </li>
-                <li class="col-auto pl-5">
-                    <a href="#">HOME</a>
-                </li>
-                <li class="col-auto pl-5">
-                    <a href="#">HOME</a>
-                </li>
-                <li class="col-auto pl-5">
-                    <a href="#">HOME</a>
-                </li>
-                <li class="col-auto pl-5">
-                    <a href="#">HOME</a>
-                </li>
-            </ul>
+                <ul class="row col-10 justify-content-center align-items-center mx-auto my-auto">
+                    <li class="col-auto pl-0">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="col-auto pl-5">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="col-auto pl-5">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="col-auto pl-5">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="col-auto pl-5">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="col-auto pl-5">
+                        <a href="#">HOME</a>
+                    </li>
+                </ul>
 
 
-        </div>*@
+            </div>*@
         <!-- navfooter end -->
 
     </nav>
     <!-- nav end -->
     <!-- header start -->
     @*<div id="header" class="container-fluid ">
-        <div class="row col-10 mx-auto h-100 justify-content-center">
-            <div class="col-6 align-self-center text-center">
-                <p>COMING SOON NEXT WEEK</p>
+            <div class="row col-10 mx-auto h-100 justify-content-center">
+                <div class="col-6 align-self-center text-center">
+                    <p>COMING SOON NEXT WEEK</p>
 
-                <h1>Lorem ipsum dolor sit.</h1>
-                <div id="spacer" class="mx-auto my-4"></div>
+                    <h1>Lorem ipsum dolor sit.</h1>
+                    <div id="spacer" class="mx-auto my-4"></div>
 
-                <button type="button" class="btn py-2 px-3 blackbtn">SHOW NOW</button>
-                <button type="button" class="btn py-2 px-3 greenbtn">LEARN MORE</button>
+                    <button type="button" class="btn py-2 px-3 blackbtn">SHOW NOW</button>
+                    <button type="button" class="btn py-2 px-3 greenbtn">LEARN MORE</button>
 
+                </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 
 
     <!-- header end -->
-
-
     <!-- shop area start -->
-@RenderBody()
+    @RenderBody()
     <!-- shop area end -->
     <div id="footer" class="container-fluid  mt-5 py-4">
         <div id="footerrow" class="row col-10 mx-auto px-4 py-5">
@@ -195,7 +196,28 @@
         </div>
     </div>
 
-
+    <!-- Modal -->
+    
+    <div class="modal fade mx-auto w-100" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mx-auto" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="~/image/home/logo4.png" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
 </body>
 
 </html>
