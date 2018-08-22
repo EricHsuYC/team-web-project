@@ -114,14 +114,15 @@ namespace WebProject.Controllers
             if(appClass.Member == "")
             {
                 ViewBag.Alert = "請先登入!";
-                RedirectToAction("Login");
+                return RedirectToAction("Login");
             }
             else
             {
 
             
             shopping_cart newItem = new shopping_cart();
-            newItem.member_account = user;
+            var buyer = db.member.Where(m=>m.member_name == user).FirstOrDefault();
+            newItem.member_account = buyer.member_account;
             newItem.product_no = productNo;
             newItem.product_quantity = qantity;
             db.shopping_cart.Add(newItem);
@@ -129,8 +130,10 @@ namespace WebProject.Controllers
             
 
 
+
             }
             return new EmptyResult();
+
         }
 
 
