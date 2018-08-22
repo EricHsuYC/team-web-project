@@ -106,12 +106,12 @@ namespace WebProject.Controllers
 
 
 
-        //[HttpPost]
+        [HttpPost]
         public ActionResult AddCart(string productNo, int qantity)
         {
 
             var user = appClass.Member;
-            if(user == "")
+            if(appClass.Member == "")
             {
                 ViewBag.Alert = "請先登入!";
                 RedirectToAction("Login");
@@ -126,7 +126,7 @@ namespace WebProject.Controllers
             newItem.product_quantity = qantity;
             db.shopping_cart.Add(newItem);
             db.SaveChanges();
-            return new EmptyResult();
+            
 
 
             }

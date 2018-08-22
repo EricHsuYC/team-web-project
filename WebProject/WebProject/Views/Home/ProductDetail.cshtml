@@ -38,9 +38,10 @@
             <div id="detail" class="col-12">@Model.product_details</div>
             <p class="w-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam consequatur nostrum odio eaque magni, quis pariatur dicta commodi, similique animi maiores explicabo quas accusantium sit ea unde exercitationem labore quaerat odit excepturi, ullam nesciunt obcaecati error!</p>
             <p class="w-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia officia mollitia culpa perferendis voluptatum, modi assumenda neque facere. Inventore, quaerat eum? Ex repudiandae id aliquam velit labore, nostrum eum commodi.</p>
-            <form action="@Url.Action("AddCart",new {productNo = 1, quantity = 1})" method="get" class="mx-auto col-12">
+            <form action="@Url.Action("AddCart")" method="post" class="mx-auto col-12">
                 <div id="price" class="col-12">
                     <span class="text-uppercase">數量: </span>
+                    <input class="input" type="hidden" name="productNo" value="@Model.product_no" id="productNo">
                     <input class="input" type="number" name="qantity" value="1" id="name">
 
                 </div>
