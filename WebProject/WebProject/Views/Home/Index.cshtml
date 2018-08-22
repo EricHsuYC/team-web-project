@@ -3,6 +3,27 @@
 @{
     ViewBag.Title = "Fresh Bar";
 }
+
+<script>
+    //$(function () {
+    //    $("#show").click(function () {
+    //        $("html, body").animate(
+    //            {
+    //                scrollTop: $("#new_arrival").offset().top
+    //            },
+    //            500
+    //        );
+    //    })
+    //}
+
+    function ScrollTo(show) {
+        $('html,body').animate({
+            scrollTop: $('#shoprow1').offset().top
+        }, 700);
+    }
+
+</script>
+
 <!-- header start -->
 <div id="header" class="container-fluid ">
     <div class="row col-10 mx-auto h-100 justify-content-center">
@@ -13,8 +34,8 @@
             <h1>Lorem ipsum dolor sit.</h1>
             <div id="spacer" class="mx-auto my-4"></div>
 
-            <button type="button" class="btn py-2 px-3 blackbtn">SHOW NOW</button>
-            <button type="button" class="btn py-2 px-3 greenbtn">LEARN MORE</button>
+            <button type="button" id="show" class="btn py-2 px-3 blackbtn" onClick="javascript:ScrollTo('new_arrival')">SHOW NOW</button>
+            <button type="button" id="learn" class="btn py-2 px-3 greenbtn">LEARN MORE</button>
 
         </div>
     </div>
