@@ -95,13 +95,27 @@ namespace WebProject.Controllers
         }
 
         
-        //購物車
+        //顯示購物車
         public ActionResult Cart()
         {
 
             var user = appClass.Member;
             var CartList = db.shopping_cart.Where(m => m.member_account == user).ToList();
             return View(CartList);
+        }
+
+        public ActionResult AddCart(string productNo, int qantity)
+        {
+
+            var user = appClass.Member;
+            shopping_cart newItem = new shopping_cart;
+            newItem.member_account = user;
+            newItem.product_no = productNo;
+            newItem.product_quantity = qantity;
+            db.shopping_cart.Add(newItem);
+            db.SaveChanges();
+
+            return View();
         }
 
 
