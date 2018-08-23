@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<WebProject.Models.shopping_cart>
 
-@*@model IEnumerable<WebProject.ViewModel.CartViewModel>*@
-
-@*@model WebProject.ViewModel.CartViewModel*@
 
 
 @{
     var Account = HttpContext.Current.Session["Account"];
-    //var CartItem = (List<String>)ViewBag.CartItem;
+
 }
 
 
@@ -52,7 +49,7 @@
                                 </td>
                                 <td class="align-middle w-25">@item.product.product_details</td>
                                 <td class="mx-auto align-middle">
-                                    <input class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity" />
+                                    <input name="quantity" class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity"/>
                                 </td>
                                 <td class="text-right align-middle">@item.product.product_price NT$</td>
                                 <td class="text-right align-middle">
