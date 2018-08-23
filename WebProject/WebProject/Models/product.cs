@@ -48,7 +48,7 @@ namespace WebProject.Models
 
         [DisplayName("產品分類")]
         [Required]
-        public string product_catagory { get; set; }
+        public string Product_catagory { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shopping_cart> shopping_cart { get; set; }
