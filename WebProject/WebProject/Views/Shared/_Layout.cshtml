@@ -42,15 +42,18 @@
                 <a class="col-auto pl-3" href="#">email@email.com</a>
 
                 @{
-                    if (HttpContext.Current.Session["Member"] == null)
-                    {
-                        <a class="col-auto pl-3 ml-auto" href="#">@Html.ActionLink("登入", "Login", "Home")</a>
-                        <a class="col-auto pl-3" href="#">@Html.ActionLink("註冊", "Register", "Home")</a>
-                    }
-                    else
-                    {
-                        <span class="col-auto pl-3 ml-auto">會員中心</span>
-                    }
+        if (HttpContext.Current.Session["Member"] == null)
+        {
+            <a class="col-auto pl-3 ml-auto" href="#">@Html.ActionLink("登入", "Login", "Home")</a>
+            <a class="col-auto pl-3" href="#">@Html.ActionLink("註冊", "Register", "Home")</a>
+}
+else
+{
+            <span class="col-auto pl-3 ml-auto">會員中心</span>
+            <a class="col-auto pl-3" href="#">
+                @Html.ActionLink("登出", "Logout", "Home")
+            </a>
+        }
                 }
 
 
@@ -74,7 +77,7 @@
                         <a href="#" class="dropdown-item">123</a>
                     </div>
                 </div>
-            </div>
+</div>
         </div>
         <!-- navheader end -->
         <!-- navbody start -->
