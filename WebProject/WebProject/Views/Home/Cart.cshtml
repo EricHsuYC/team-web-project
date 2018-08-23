@@ -64,39 +64,8 @@
 
                         }
 
-                        
-                        @*<tr>
-                            <td>
-                                <img class="w-100" src="https://dummyimage.com/50x50/55595c/fff" />
-                            </td>
-                            <td>Title</td>
-                            <td>In stock</td>
-                            <td>
-                                <input class="form-control" type="text" value="1" />
-                            </td>
-                            <td class="text-right">NT$33,90</td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://dummyimage.com/50x50/55595c/fff" />
-                            </td>
-                            <td>Product Name Titi</td>
-                            <td>In stock</td>
-                            <td>
-                                <input class="form-control" type="text" value="1" />
-                            </td>
-                            <td class="text-right">NT$70,00</td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>*@
+
+
                         <tr>
                             <td></td>
                             <td></td>
@@ -133,11 +102,82 @@
             <div class="row ">
                 <div class="col-sm-12  col-md-12 d-flex justify-content-between ">
                     <a class="btn btn-lg btn-block btn-outline-secondary w-25" href="@Url.Action("Index")" style="border-radius:10px!important; font-size:15px;"><i class="fas fa-arrow-left pr-2"></i>CONTINUE SHOPPING</a>
-                @*</div>
-                <div class="col-sm-12 col-md-6 col-auto">*@
-                    <button class="btn btn-lg btn-block btn-success text-uppercase w-25" style="border-radius:10px!important; font-size:16px;">Checkout<i class="fas fa-arrow-right pl-2"></i></button>
+                    @*</div>
+                        <div class="col-sm-12 col-md-6 col-auto">*@
+                    <button class="btn btn-lg btn-block btn-success text-uppercase w-25" style="border-radius:10px!important; font-size:16px;" data-toggle="modal" data-target="#buy">Checkout<i class="fas fa-arrow-right pl-2"></i></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+
+<div class="modal fade mx-auto w-100" id="buy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto" role="document">
+        <div class="modal-content">
+            <div class="container-fluid mx-auto mt-5">
+                <div class="card mx-auto " style="width:600px; border:2px solid #dbdbdb; border-radius: 30px!important;">
+                    <article class="card-body mx-auto" style="max-width: 400px;">
+                        <h4 class="card-title mt-3 text-center my-3">填寫收件資料</h4>
+                        <p class="text-center">Fill in the receipt information and let us serve you.</p>
+                        <form action="@Url.Action("AddOrder")" method="post">
+
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text p-2">
+                                        <i class="fa fa-user fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="rname" class="form-control" placeholder=" 收件人姓名" type="text">
+                            </div>
+
+
+                            <!-- form-group// -->
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text p-2">
+                                        <i class="fa fa-phone fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="rphone" class="form-control" placeholder=" 收件人電話" type="text">
+                            </div>
+                            <!-- form-group// -->
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text p-2 mx-auto">
+                                        <i class="fas fa-address-card fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="raddress" class="form-control" placeholder="收件地址" type="text">
+                            </div>
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text p-2 mx-auto">
+                                        <i class="fas fa-address-card fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="remark" class="form-control" placeholder="備註" type="text">
+                            </div>
+
+                            <div class="form-group m-3 mx-auto mb-5">
+                                <button type="submit" class="btn btn-primary btn-block mx-auto p-2" style="background-color: rgb(19, 197, 182); border : 0px"> 送出 </button>
+                            </div>
+
+                        </form>
+                    </article>
+                </div>
+                <!-- card.// -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->

@@ -22,10 +22,7 @@ namespace WebProject.Controllers
         {
 
             var products = db.product;
-            if (appClass.Member != "")
-            {
-
-            }
+            ViewBag.Welcome = "歡迎光臨! " + appClass.Member;
 
             return View(products);
         }
@@ -189,14 +186,24 @@ namespace WebProject.Controllers
         public ActionResult AddOrder(string rname, string rphone, string raddress, string remark)
         {
             var time = DateTime.Now;
+            //string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
             order_form order = new order_form();
+            order.order_date = time;
             order.member_account = appClass.Account;
+            order.remittance_account = "0000-0000-0000";
+            order.payment_method = "匯款";
+            order.shipping_status = "已接收訂單";
             order.recipient_name = rname;
             order.recipient_phone = rphone;
             order.recipient_address = raddress;
             order.remark = remark;
             db.order_form.Add(order);
-            db.SaveChanges();
+            try { db.SaveChanges(); }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+
+                throw ex;
+            }
 
             order_detail orderDetail = new order_detail();
             var cartlist = db.shopping_cart.Where(m => m.member_account == appClass.Account).ToList();
@@ -205,8 +212,15 @@ namespace WebProject.Controllers
                 orderDetail.order_id = order.order_id;
                 orderDetail.product_quantity = item.product_quantity;
                 orderDetail.product_no = item.product_no;
-                db.SaveChanges();
+                db.order_detail.Add(orderDetail);
+                try { db.SaveChanges(); }
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+
+                    throw ex;
+                }
             }
+
 
 
 
@@ -226,7 +240,15 @@ namespace WebProject.Controllers
             var orders = db.order_form.Where(m => m.member_account == appClass.Account).OrderByDescending(m => m.order_date).ToList();
 
 
-            return View();
+            return View(orders);
+        }
+
+        public ActionResult OrderDetail(int id)
+        {
+            var od = db.order_detail.Where(m => m.order_id == id).ToList();
+
+
+            return View(od);
         }
 
 

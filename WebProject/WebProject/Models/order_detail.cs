@@ -18,15 +18,12 @@ namespace WebProject.Models
     {
 
         [DisplayName("訂單編號")]
-        [Required]
         public int order_id { get; set; }
 
         [DisplayName("商品數量")]
-        [Required]
         public Nullable<int> product_quantity { get; set; }
 
         [DisplayName("商品編號")]
-        [Required]
         public string product_no { get; set; }
         public int rowid { get; set; }
     
