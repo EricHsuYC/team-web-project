@@ -11,13 +11,34 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class member
     {
         public int member_id { get; set; }
+
+        [DisplayName("會員姓名")]
+        [Required]
         public string member_name { get; set; }
+
+        [DisplayName("會員電話")]
+        [Required]
         public string member_phone { get; set; }
+
+        [DisplayName("會員帳號")]
+        [Required]
+        [EmailAddress]
         public string member_account { get; set; }
+
+        [DisplayName("密碼")]
+        [Required]
+        [StringLength(20, ErrorMessage = "密碼必須是3-20字元", MinimumLength = 3)]
         public string member_password { get; set; }
+
+        [DisplayName("確認密碼")]
+        [Required]
+        [Compare("member_password", ErrorMessage = "兩次密碼輸入不相同，請重新確認密碼")]
+        public string confirm_password { get; set; }
     }
 }

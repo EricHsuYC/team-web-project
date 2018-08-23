@@ -11,7 +11,9 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class order_form
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,19 +21,47 @@ namespace WebProject.Models
         {
             this.order_detail = new HashSet<order_detail>();
         }
-    
+
+        [DisplayName("訂單編號")]
+        [Required]
         public int order_id { get; set; }
+
+        [DisplayName("訂單日期")]
+        [Required]
         public Nullable<System.DateTime> order_date { get; set; }
+
+        [DisplayName("收件人姓名")]
+        [Required]
         public string recipient_name { get; set; }
+
+        [DisplayName("收件人電話")]
+        [Required]
         public string recipient_phone { get; set; }
+
+        [DisplayName("收件人地址")]
+        [Required]
         public string recipient_address { get; set; }
+
+        [DisplayName("付款方式")]
         public string payment_method { get; set; }
+
+        [DisplayName("匯款帳號")]
+        [Required]
         public string remittance_account { get; set; }
+
+        [DisplayName("付款狀態")]
         public string payment_status { get; set; }
+
+        [DisplayName("匯款狀態")]
         public string shipping_status { get; set; }
+
+        [DisplayName("會員帳號")]
+        [Required]
         public string member_account { get; set; }
+
+        [DisplayName("備註")]
         public string remark { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order_detail> order_detail { get; set; }
     }

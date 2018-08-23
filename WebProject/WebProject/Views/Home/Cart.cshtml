@@ -54,7 +54,7 @@
                                 <td class="mx-auto align-middle">
                                     <input class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity" />
                                 </td>
-                                <td class="text-right align-middle">@*@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_price).FirstOrDefault() NT$*@</td>
+                                <td class="text-right align-middle">@item.product.product_price NT$</td>
                                 <td class="text-right align-middle">
                                     <button class="btn btn-sm btn-light">
                                         <i class="fa fa-trash-alt p-1 text-danger"></i>
