@@ -57,7 +57,7 @@
                                 <td class="text-right align-middle">@item.product.product_price NT$</td>
                                 <td class="text-right align-middle">
                                     <button class="btn btn-sm btn-light">
-                                        <i class="fa fa-trash-alt p-1 text-danger"></i>
+                                        <a href="@Url.Action("DeleteCart", new {rowid = item.rowid})" class="fa fa-trash-alt p-1 text-danger"></a>
                                     </button>
                                 </td>
                             </tr>

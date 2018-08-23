@@ -193,6 +193,21 @@ namespace WebProject.Controllers
         }
 
 
+        
+        public ActionResult DeleteCart(int rowid)
+        {
+            var item = db.shopping_cart.Where(m => m.rowid == rowid).FirstOrDefault();
+            db.shopping_cart.Remove(item);
+            db.SaveChanges();
+            var user = appClass.Member;
+
+            return RedirectToAction("Cart");
+        }
+
+
+
+
+
         //會員的訂單列表
         public ActionResult OrderList()
         {
@@ -203,6 +218,9 @@ namespace WebProject.Controllers
 
             return View();
         }
+
+
+
 
 
         //產品頁面
