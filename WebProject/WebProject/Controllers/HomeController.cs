@@ -103,7 +103,16 @@ namespace WebProject.Controllers
         {
 
             var user = appClass.Member;
+            //var CartPNo = db.shopping_cart.Where(m => m.member_account == user).Select(m => m.product_no).ToList();
+
             var CartList = db.shopping_cart.Where(m => m.member_account == user).ToList();
+            //var pNo = db.product.Where(m => m.product_no == CartPNo.ToString()).ToList();
+
+            //var abc = from a in db.shopping_cart
+            //          join p in db.product on a equals p.product_no into ps
+            //          select new { }
+
+            //var ProductList = db.product.Where(m => m.product_no == CartList.)
             return View(CartList);
         }
 
@@ -126,7 +135,7 @@ namespace WebProject.Controllers
                 shopping_cart newItem = new shopping_cart();
                 //var buyer = db.member.Where(m => m.member_name == user).FirstOrDefault();
                 
-                var item = db.shopping_cart.Where(m => m.product_no == productNo).FirstOrDefault();
+                var item = db.shopping_cart.Where(m => m.member_account == appClass.Account && m.product_no == productNo).FirstOrDefault();
 
                 //若購物車內已有相同商品則只更改數量
                 if (item == null)
