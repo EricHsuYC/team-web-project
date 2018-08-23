@@ -124,26 +124,6 @@ namespace WebProject.Controllers
 
 
 
-
-
-            //var CartPNo = db.shopping_cart.Where(m => m.member_account == user).Select(m => m.product_no).ToList();
-
-            //var cart = db.shopping_cart.Where(m => m.member_account == user);
-            //var pNo = db.product.Where(m => m.product_no == CartPNo.ToString()).ToList();
-
-            //var CartItem = from s in cart
-            //          join p in db.product on s.product_no equals p.product_no
-            //          select new { s.product_no, s.member_account, s.product_quantity, p.product_description, p.product_image, p.product_name, p.product_price };
-            //ViewBag.CartItem = CartItem.ToList();
-
-
-
-            //var ProductList = db.product.Where(m => m.product_no == CartList.)
-
-
-
-
-
         [HttpPost]
         public ActionResult AddCart(string productNo, int qantity, string productName)
         {
@@ -205,15 +185,45 @@ namespace WebProject.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult AddOrder(string rname, string rphone, string raddress, string remark)
+        {
+            var time = DateTime.Now;
+            order_form order = new order_form();
+            order.member_account = appClass.Account;
+            order.recipient_name = rname;
+            order.recipient_phone = rphone;
+            order.recipient_address = raddress;
+            order.remark = remark;
+            db.order_form.Add(order);
+            db.SaveChanges();
+
+            order_detail orderDetail = new order_detail();
+            var cartlist = db.shopping_cart.Where(m => m.member_account == appClass.Account).ToList();
+            foreach (var item in cartlist)
+            {
+                orderDetail.order_id = order.order_id;
+                orderDetail.product_quantity = item.product_quantity;
+                orderDetail.product_no = item.product_no;
+                db.SaveChanges();
+            }
+
+
+
+            return RedirectToAction("OrderList");
+
+            //return View();
+        }
+
+
+
 
 
 
         //會員的訂單列表
         public ActionResult OrderList()
         {
-            var user = appClass.Member;
-            //找到該會員的訂單
-            var orders = db.order_form.Where(m => m.member_account == user).OrderByDescending(m => m.order_date).ToList();
+            var orders = db.order_form.Where(m => m.member_account == appClass.Account).OrderByDescending(m => m.order_date).ToList();
 
 
             return View();

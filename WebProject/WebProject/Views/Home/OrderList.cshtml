@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebProject.Models.order_form>
+
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.order_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recipient_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recipient_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recipient_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_method)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remittance_account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipping_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.member_account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recipient_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recipient_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recipient_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.payment_method)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remittance_account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.payment_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipping_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.member_account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remark)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_id })
+        </td>
+    </tr>
+}
+
+</table>
