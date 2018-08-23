@@ -155,8 +155,8 @@ namespace WebProject.Controllers
 
 
                 //加入購物車後回傳狀態給jquery執行提示視窗
-                TempData["Bought"] = "true";
-                return RedirectToAction("ProductDetail", new { productName = productName, productNo = productNo});
+                //TempData["Bought"] = "true";
+                return RedirectToAction("ProductDetail", new { productName = productName, productNo = productNo, showPrompt = "true"});
 
 
 
@@ -180,7 +180,7 @@ namespace WebProject.Controllers
 
 
         //產品頁面
-        public ActionResult ProductDetail(string productName, string productNo)
+        public ActionResult ProductDetail(string productName, string productNo, string showPrompt)
         {
             ViewBag.productName = productName;
             var productdetail = db.product.Where(m => m.product_name == productName).FirstOrDefault();
@@ -196,6 +196,7 @@ namespace WebProject.Controllers
                 ViewBag.AllowBuy = "false";
 
             }
+            ViewBag.Bought = showPrompt;
             return View(productdetail);
 
         }
