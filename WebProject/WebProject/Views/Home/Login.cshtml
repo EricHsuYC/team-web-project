@@ -41,26 +41,26 @@
                 <form action="@Url.Action("Login")" method="post" class="mx-auto">
 
                     <!-- form-group// -->
-                    <div class="form-group input-group my-4">
+                    <div class="form-group input-group mt-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text p-2">
                                 <i class="fa fa-user fa-lg p-1"></i>
                             </span>
                         </div>
-                        <input id="id" name="id" required="required" class="form-control" placeholder="電子信箱" type="email">
+                        <input id="id" name="id" required="required" class="form-control" placeholder=" 電子信箱" type="email">
                     </div>
                     <!-- form-group// -->
 
-                    <div class="form-group input-group my-4">
+                    <div class="form-group input-group mt-4">
                         <div class="input-group-prepend ">
                             <span class="input-group-text p-2 mx-auto">
                                 <i class="fa fa-lock fa-lg p-1"></i>
                             </span>
                         </div>
-                        <input class="form-control" placeholder="請輸入密碼" type="password" id="pwd" name="pwd" required="required">
+                        <input class="form-control" placeholder=" 請輸入密碼" type="password" id="pwd" name="pwd" required="required">
 
                     </div>
-                    @ViewBag.Message
+                    <span class="text-danger">@ViewBag.Message</span>
                     <!-- form-group// -->
                     <!-- form-group// -->
                     <div class="form-group m-3 mx-auto">
@@ -69,9 +69,9 @@
 
                     </div>
                     <!-- form-group// -->
-                    <p class="text-center my-4">
+                    <p class="text-center mt-4">
                         還沒帳號嗎?
-                        <a href="" style="color: rgb(252, 159, 37)">點我註冊</a>
+                        <a href="" class="text-warning">點我註冊</a>
                     </p>
                 </form>
             </article>

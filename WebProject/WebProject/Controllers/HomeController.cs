@@ -57,12 +57,13 @@ namespace WebProject.Controllers
 
         }
 
+        //註冊
         public ActionResult Register()
         {
             return View();
         }
 
-
+        //註冊
         [HttpPost]
         public ActionResult Register(member input_member)
         {
@@ -88,7 +89,7 @@ namespace WebProject.Controllers
 
         }
 
-
+        //登出
         public ActionResult Logout()
         {
             Session.Clear();
@@ -142,6 +143,9 @@ namespace WebProject.Controllers
                     item.product_quantity = qantity;
                     db.SaveChanges();
                 }
+
+
+                //加入購物車後回傳狀態給jquery執行提示視窗
                 TempData["Bought"] = "true";
                 return RedirectToAction("ProductDetail", new { productName = productName, productNo = productNo});
 
@@ -172,7 +176,9 @@ namespace WebProject.Controllers
             ViewBag.productName = productName;
             var productdetail = db.product.Where(m => m.product_name == productName).FirstOrDefault();
             var cartitem = db.shopping_cart.Where(m => m.member_account == appClass.Account && m.product_no == productNo).FirstOrDefault();
-            if(cartitem == null)
+
+            //購物車是否已經有該產品
+            if (cartitem == null)
             {
                 ViewBag.AllowBuy = "true";
             }
