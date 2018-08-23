@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebProject.Models;
 using WebProject.App_Class;
 using WebProject.ViewModel;
+using System.Data.Entity;
+
 
 namespace WebProject.Controllers
 {
@@ -104,12 +106,18 @@ namespace WebProject.Controllers
         {
             var user = appClass.Account;
 
-            CartViewModel cm = new CartViewModel()
-            {
-                CartItems = db.shopping_cart.Where(m => m.member_account == user).ToList(),
-                Products = db.product.ToList()
-            };
-            return View(cm);
+            var cartItem = db.shopping_cart.Where(m=>m.member_account == user).Include(m => m.product);
+            //var cartItem = db.product.Include(m => m.shopping_cart);
+
+
+
+
+            //CartViewModel cm = new CartViewModel()
+            //{
+            //    CartItems = db.shopping_cart.Where(m => m.member_account == user).ToList(),
+            //    Products = db.product.ToList()
+            //};
+            return View(cartItem.ToList());
 
         } 
 

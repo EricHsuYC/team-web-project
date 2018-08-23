@@ -28,7 +28,7 @@ namespace WebProject.Models
         public virtual DbSet<member> member { get; set; }
         public virtual DbSet<order_detail> order_detail { get; set; }
         public virtual DbSet<order_form> order_form { get; set; }
-        public virtual DbSet<shopping_cart> shopping_cart { get; set; }
         public virtual DbSet<product> product { get; set; }
+        public virtual DbSet<shopping_cart> shopping_cart { get; set; }
     }
 }

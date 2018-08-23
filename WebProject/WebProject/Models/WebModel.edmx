@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="team_web_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="team_web_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="member">
           <Key>
             <PropertyRef Name="member_id" />
@@ -17,11 +17,12 @@
         </EntityType>
         <EntityType Name="order_detail">
           <Key>
-            <PropertyRef Name="order_id" />
+            <PropertyRef Name="rowid" />
           </Key>
-          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_id" Type="int" />
           <Property Name="product_quantity" Type="int" />
           <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="order_form">
           <Key>
@@ -49,24 +50,58 @@
           <Property Name="product_description" Type="nvarchar" MaxLength="50" />
           <Property Name="product_details" Type="nvarchar" MaxLength="100" />
           <Property Name="product_image" Type="nvarchar" MaxLength="50" />
-          <Property Name="product_catagory" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_catagory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
-            <PropertyRef Name="member_account" />
+            <PropertyRef Name="rowid" />
           </Key>
           <Property Name="product_no" Type="nvarchar" MaxLength="50" />
           <Property Name="product_quantity" Type="int" />
-          <Property Name="member_account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="member_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <Association Name="FK_order_id">
+          <End Role="order_form" Type="Self.order_form" Multiplicity="0..1" />
+          <End Role="order_detail" Type="Self.order_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_form">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_detail">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_no">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_no" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="product_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="team_web_projectModelStoreContainer">
           <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order_detail" EntityType="Self.order_detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order_form" EntityType="Self.order_form" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_order_id" Association="Self.FK_order_id">
+            <End Role="order_form" EntitySet="order_form" />
+            <End Role="order_detail" EntitySet="order_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_no" Association="Self.FK_product_no">
+            <End Role="product" EntitySet="product" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="team_web_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -82,11 +117,13 @@
         </EntityType>
         <EntityType Name="order_detail">
           <Key>
-            <PropertyRef Name="order_id" />
+            <PropertyRef Name="rowid" />
           </Key>
-          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id" Type="Int32" />
           <Property Name="product_quantity" Type="Int32" />
           <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="order_form" Relationship="Self.FK_order_id" FromRole="order_detail" ToRole="order_form" />
         </EntityType>
         <EntityType Name="order_form">
           <Key>
@@ -103,34 +140,70 @@
           <Property Name="shipping_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="order_detail" Relationship="Self.FK_order_id" FromRole="order_form" ToRole="order_detail" />
         </EntityType>
-        <EntityType Name="shopping_cart">
-          <Key>
-            <PropertyRef Name="member_account" />
-          </Key>
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_quantity" Type="Int32" />
-          <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityContainer Name="team_web_projectEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="member" EntityType="Self.member" />
-          <EntitySet Name="order_detail" EntityType="Self.order_detail" />
-          <EntitySet Name="order_form" EntityType="Self.order_form" />
-          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
-          <EntitySet Name="product" EntityType="team_web_projectModel.product" />
-        </EntityContainer>
         <EntityType Name="product">
           <Key>
             <PropertyRef Name="product_no" />
           </Key>
-          <Property Name="product_no" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_price" Type="Int32" />
           <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK_product_no" FromRole="product" ToRole="shopping_cart" />
         </EntityType>
+        <EntityType Name="shopping_cart">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_quantity" Type="Int32" />
+          <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="product" Relationship="Self.FK_product_no" FromRole="shopping_cart" ToRole="product" />
+        </EntityType>
+        <Association Name="FK_order_id">
+          <End Role="order_form" Type="Self.order_form" Multiplicity="0..1" />
+          <End Role="order_detail" Type="Self.order_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_form">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_detail">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_no">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_no" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="product_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="team_web_projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="member" EntityType="Self.member" />
+          <EntitySet Name="order_detail" EntityType="Self.order_detail" />
+          <EntitySet Name="order_form" EntityType="Self.order_form" />
+          <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
+          <AssociationSet Name="FK_order_id" Association="Self.FK_order_id">
+            <End Role="order_form" EntitySet="order_form" />
+            <End Role="order_detail" EntitySet="order_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_no" Association="Self.FK_product_no">
+            <End Role="product" EntitySet="product" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -154,13 +227,13 @@
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="order_form">
             <EntityTypeMapping TypeName="team_web_projectModel.order_form">
               <MappingFragment StoreEntitySet="order_form">
-                <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="order_date" ColumnName="order_date" />
                 <ScalarProperty Name="recipient_name" ColumnName="recipient_name" />
@@ -171,6 +244,20 @@
                 <ScalarProperty Name="payment_status" ColumnName="payment_status" />
                 <ScalarProperty Name="shipping_status" ColumnName="shipping_status" />
                 <ScalarProperty Name="member_account" ColumnName="member_account" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="team_web_projectModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_details" ColumnName="product_details" />
+                <ScalarProperty Name="product_image" ColumnName="product_image" />
+                <ScalarProperty Name="Product_catagory" ColumnName="Product_catagory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -180,19 +267,7 @@
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
                 <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
                 <ScalarProperty Name="member_account" ColumnName="member_account" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="product">
-            <EntityTypeMapping TypeName="team_web_projectModel.product">
-              <MappingFragment StoreEntitySet="product">
-                <ScalarProperty Name="product_catagory" ColumnName="product_catagory" />
-                <ScalarProperty Name="product_image" ColumnName="product_image" />
-                <ScalarProperty Name="product_details" ColumnName="product_details" />
-                <ScalarProperty Name="product_description" ColumnName="product_description" />
-                <ScalarProperty Name="product_price" ColumnName="product_price" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -213,7 +288,7 @@
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
