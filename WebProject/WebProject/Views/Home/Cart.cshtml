@@ -5,7 +5,7 @@
 
 
 @{
-    //var CartItem = (List<String>)ViewBag.CartItem;
+//var CartItem = (List<String>)ViewBag.CartItem;
 }
 
 
@@ -35,16 +35,17 @@
 
 
 
-                        @foreach (var item in Model.CartItems)
-                        {
+                        @{
+                            foreach (var item in Model.CartItems) { 
+
                             <tr>
                                 <td>
-                                    <img class="w-100" src="~/image/product/@Model.Products.Where(m=>m.product_no == item.product_no).Select(m=>m.product_image).FirstOrDefault()" />
+                                    <img class="w-100" src="~/image/product/@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_image).FirstOrDefault()" />
                                 </td>
                                 <td>
                                     <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_name).FirstOrDefault()</div>
                                     <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_description).FirstOrDefault()</div>
-                                    <div>@item.product_no.FirstOrDefault()</div>
+                                    <div>@item.product_no</div>
 
 
 
@@ -60,10 +61,10 @@
                                     </button>
                                 </td>
                             </tr>
-
+                            }
                         }
 
-                        }
+
                         <tr>
                             <td>
                                 <img class="w-100" src="https://dummyimage.com/50x50/55595c/fff" />
