@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebProject.Models;
 using WebProject.App_Class;
+using WebProject.ViewModel;
 
 namespace WebProject.Controllers
 {
@@ -101,20 +102,37 @@ namespace WebProject.Controllers
         //顯示購物車
         public ActionResult Cart()
         {
+            var user = appClass.Account;
 
-            var user = appClass.Member;
+            CartViewModel cm = new CartViewModel()
+            {
+                CartItems = db.shopping_cart.Where(m => m.member_account == user).ToList(),
+                Products = db.product.ToList()
+            };
+            return View(cm);
+
+        } 
+
+
+
+
+
+
             //var CartPNo = db.shopping_cart.Where(m => m.member_account == user).Select(m => m.product_no).ToList();
 
-            var CartList = db.shopping_cart.Where(m => m.member_account == user).ToList();
+            //var cart = db.shopping_cart.Where(m => m.member_account == user);
             //var pNo = db.product.Where(m => m.product_no == CartPNo.ToString()).ToList();
 
-            //var abc = from a in db.shopping_cart
-            //          join p in db.product on a equals p.product_no into ps
-            //          select new { }
+            //var CartItem = from s in cart
+            //          join p in db.product on s.product_no equals p.product_no
+            //          select new { s.product_no, s.member_account, s.product_quantity, p.product_description, p.product_image, p.product_name, p.product_price };
+            //ViewBag.CartItem = CartItem.ToList();
+
+
 
             //var ProductList = db.product.Where(m => m.product_no == CartList.)
-            return View(CartList);
-        }
+
+
 
 
 

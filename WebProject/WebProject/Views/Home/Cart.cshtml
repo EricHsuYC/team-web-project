@@ -1,5 +1,12 @@
-﻿@model IEnumerable<WebProject.Models.shopping_cart>
+﻿@*@model IEnumerable<WebProject.Models.shopping_cart>*@
+@*@model IEnumerable<WebProject.ViewModel.CartViewModel>*@
 
+@model WebProject.ViewModel.CartViewModel
+
+
+@{
+    //var CartItem = (List<String>)ViewBag.CartItem;
+}
 
 
 @{
@@ -25,41 +32,43 @@
                         </tr>
                     </thead>
                     <tbody class="">
-                        @{
-                            foreach (var Item in Model)
-                            {
-                                <tr class="">
-                                    <td>
-                                        <div>
-                                            <img class="w-100" src="https://dummyimage.com/510x510/55595c/fff" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>213123</div>
-                                        <div>@Item.product_quantity</div>
-                                    </td>
-                                    <td>In stock</td>
-                                    <td>
-                                        <input class="form-control" type="text" value="1" />
-                                    </td>
-                                    <td class="text-right">124,90 €</td>
-                                    <td class="text-right">
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
 
-                            }
+
+
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <tr>
+                                <td>
+                                    <img class="w-100" src="~/image/product/@Model.Products.Where(m=>m.product_no == item.product_no).Select(m=>m.product_image).FirstOrDefault()" />
+                                </td>
+                                <td>
+                                    <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_name).FirstOrDefault()</div>
+                                    <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_description).FirstOrDefault()</div>
+                                    <div>@item.product_no.FirstOrDefault()</div>
+
+
+
+                                </td>
+                                <td>In stock</td>
+                                <td>
+                                    <input class="form-control" type="text" value="1" />
+                                </td>
+                                <td class="text-right">@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_price).FirstOrDefault() NT$</td>
+                                <td class="text-right">
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
                         }
 
-
-
+                        }
                         <tr>
                             <td>
                                 <img class="w-100" src="https://dummyimage.com/50x50/55595c/fff" />
                             </td>
-                            <td>Product Name Toto123</td>
+                            <td>Title</td>
                             <td>In stock</td>
                             <td>
                                 <input class="form-control" type="text" value="1" />
