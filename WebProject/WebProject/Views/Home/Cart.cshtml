@@ -27,7 +27,7 @@
                         <tr>
                             <th scope="col" style="width: 10%"> </th>
                             <th scope="col" class="pl-2">商品</th>
-                            <th scope="col">Available</th>
+                            <th scope="col">內容</th>
                             <th scope="col" class="text-center">數量</th>
                             <th scope="col" class="text-right">單價</th>
                             <th> </th>
@@ -50,7 +50,7 @@
 
 
                                 </td>
-                                <td class="align-middle">In stock</td>
+                                <td class="align-middle w-25">@item.product.product_details</td>
                                 <td class="mx-auto align-middle">
                                     <input class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity" />
                                 </td>
@@ -102,7 +102,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="py-4 align-middle">Sub-Total</td>
+                            <td class="py-4 align-middle">商品總計</td>
                             <td class="text-right align-middle">NT$ 255,90</td>
                         </tr>
                         <tr>
@@ -110,8 +110,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="py-4 align-middle">Shipping</td>
-                            <td class="text-right align-middle">NT$  6,90</td>
+                            <td class="py-4 align-middle">運費</td>
+                            <td class="text-right align-middle">NT$  30</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -119,10 +119,10 @@
                             <td></td>
                             <td></td>
                             <td class="py-4 align-middle">
-                                <strong>Total</strong>
+                                <strong>總計</strong>
                             </td>
                             <td class="text-right align-middle">
-                                <strong>NT$ 346,90</strong>
+                                <strong>NT$ 346</strong>
                             </td>
                         </tr>
                     </tbody>
@@ -132,7 +132,7 @@
         <div class="col my-2">
             <div class="row ">
                 <div class="col-sm-12  col-md-12 d-flex justify-content-between ">
-                    <button class="btn btn-lg btn-block btn-outline-secondary w-25" style="border-radius:10px!important; font-size:15px;"><i class="fas fa-arrow-left pr-2"></i>CONTINUE SHOPPING</button>
+                    <a class="btn btn-lg btn-block btn-outline-secondary w-25" href="@Url.Action("Index")" style="border-radius:10px!important; font-size:15px;"><i class="fas fa-arrow-left pr-2"></i>CONTINUE SHOPPING</a>
                 @*</div>
                 <div class="col-sm-12 col-md-6 col-auto">*@
                     <button class="btn btn-lg btn-block btn-success text-uppercase w-25" style="border-radius:10px!important; font-size:16px;">Checkout<i class="fas fa-arrow-right pl-2"></i></button>
