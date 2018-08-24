@@ -1,11 +1,14 @@
-﻿@*@model IEnumerable<WebProject.Models.shopping_cart>*@
-@*@model IEnumerable<WebProject.ViewModel.CartViewModel>*@
+﻿@model IEnumerable<WebProject.Models.shopping_cart>
 
-@model WebProject.ViewModel.CartViewModel
 
 
 @{
+<<<<<<< HEAD
 //var CartItem = (List<String>)ViewBag.CartItem;
+=======
+    var Account = HttpContext.Current.Session["Account"];
+
+>>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
 }
 
 
@@ -14,18 +17,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cart</h2>
 
 <div class="container-fluid mb-4">
     <div class="row col-10 mx-auto">
+        <h3 class="pl-3 my-3 text-muted">購物車 Shopping Cart</h3>
         <div class="col-12">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 10%"> </th>
-                            <th scope="col">商品</th>
-                            <th scope="col">Available</th>
+                            <th scope="col" class="pl-2">商品</th>
+                            <th scope="col">內容</th>
                             <th scope="col" class="text-center">數量</th>
                             <th scope="col" class="text-right">單價</th>
                             <th> </th>
@@ -35,6 +38,7 @@
 
 
 
+<<<<<<< HEAD
                         @{
                             foreach (var item in Model.CartItems) { 
 
@@ -46,18 +50,29 @@
                                     <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_name).FirstOrDefault()</div>
                                     <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_description).FirstOrDefault()</div>
                                     <div>@item.product_no</div>
-
-
-
-                                </td>
-                                <td>In stock</td>
+=======
+                        @foreach (var item in Model)
+                        {
+                            <tr>
                                 <td>
-                                    <input class="form-control" type="text" value="1" />
+                                    <img class="w-100" src="~/image/product/@item.product.product_image" />
                                 </td>
-                                <td class="text-right">@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_price).FirstOrDefault() NT$</td>
-                                <td class="text-right">
-                                    <button class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
+                                <td class="align-middle">
+                                    <div>@item.product.product_name</div>
+                                    <div>@item.product.product_description</div>
+>>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
+
+
+
+                                </td>
+                                <td class="align-middle w-25">@item.product.product_details</td>
+                                <td class="mx-auto align-middle">
+                                    <input name="quantity" class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity"/>
+                                </td>
+                                <td class="text-right align-middle">@item.product.product_price NT$</td>
+                                <td class="text-right align-middle">
+                                    <button class="btn btn-sm btn-light">
+                                        <a href="@Url.Action("DeleteCart", new {rowid = item.rowid})" class="fa fa-trash-alt p-1 text-danger"></a>
                                     </button>
                                 </td>
                             </tr>
@@ -65,6 +80,7 @@
                         }
 
 
+<<<<<<< HEAD
                         <tr>
                             <td>
                                 <img class="w-100" src="https://dummyimage.com/50x50/55595c/fff" />
@@ -97,47 +113,121 @@
                                 </button>
                             </td>
                         </tr>
+=======
+
+>>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Sub-Total</td>
-                            <td class="text-right">255,90 €</td>
+                            <td class="py-4 align-middle">商品總計</td>
+                            <td class="text-right align-middle">NT$ 255,90</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Shipping</td>
-                            <td class="text-right">6,90 €</td>
+                            <td class="py-4 align-middle">運費</td>
+                            <td class="text-right align-middle">NT$  30</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>
-                                <strong>Total</strong>
+                            <td class="py-4 align-middle">
+                                <strong>總計</strong>
                             </td>
-                            <td class="text-right">
-                                <strong>346,90 €</strong>
+                            <td class="text-right align-middle">
+                                <strong>NT$ 346</strong>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
-                </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+        <div class="col my-2">
+            <div class="row ">
+                <div class="col-sm-12  col-md-12 d-flex justify-content-between ">
+                    <a class="btn btn-lg btn-block btn-outline-secondary w-25" href="@Url.Action("Index")" style="border-radius:10px!important; font-size:15px;"><i class="fas fa-arrow-left pr-2"></i>CONTINUE SHOPPING</a>
+                    @*</div>
+                        <div class="col-sm-12 col-md-6 col-auto">*@
+                    <button class="btn btn-lg btn-block btn-success text-uppercase w-25" style="border-radius:10px!important; font-size:16px;" data-toggle="modal" data-target="#buy">Checkout<i class="fas fa-arrow-right pl-2"></i></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+
+<div class="modal fade mx-auto w-100" id="buy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto" role="document">
+        <div class="modal-content" style="width:600px; border-radius: 30px!important;">
+            <div class="container-fluid mx-auto">
+                <div class="card mx-auto " style="width:600px; border:2px solid #dbdbdb; border-radius:30px!important;">
+                    <article class="card-body mx-auto" style="max-width:400px;">
+                        <h4 class="card-title mt-3 text-center my-3 pt-3">填寫收件資料</h4>
+                        <p class="text-center">Fill in the receipt information and let us serve you.</p>
+                        <form action="@Url.Action("AddOrder")" method="post">
+
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text p-2">
+                                        <i class="fa fa-user fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="rname" class="form-control" placeholder=" 收件人姓名" required="required" type="text">
+                            </div>
+
+
+                            <!-- form-group// -->
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text p-2">
+                                        <i class="fa fa-phone fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="rphone" class="form-control" placeholder=" 收件人電話" required="required" type="text">
+                            </div>
+                            <!-- form-group// -->
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text p-2 mx-auto">
+                                        <i class="fas fa-address-card fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="raddress" class="form-control" placeholder="收件地址" required="required" type="text">
+                            </div>
+
+                            <div class="form-group input-group my-4">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text p-2 mx-auto">
+                                        <i class="fas fa-address-card fa-lg p-1"></i>
+                                    </span>
+                                </div>
+
+                                <input name="remark" class="form-control" placeholder="備註" type="text">
+                            </div>
+
+                            <div class="form-group m-3 mx-auto mb-5">
+                                <button type="submit" class="btn btn-primary btn-block mx-auto p-2" style="background-color: rgb(19, 197, 182); border : 0px"> 送出 </button>
+                            </div>
+
+                        </form>
+                    </article>
+                </div>
+                <!-- card.// -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->

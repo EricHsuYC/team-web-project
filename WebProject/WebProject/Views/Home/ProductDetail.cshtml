@@ -31,7 +31,7 @@
         <div class="col-6  row">
             <div id="catagory" class="col-12">
                 <span class="badge badge-pill badge-warning rounded align-bottom" style="font-size:16px;">促銷</span>
-                <span class="badge badge-pill badge-success rounded align-bottom" style="font-size:16px; ">@Model.product_catagory</span>
+                <span class="badge badge-pill badge-success rounded align-bottom" style="font-size:16px; ">@Model.Product_catagory</span>
             </div>
             <div class="col-12">
                 <h2>@ViewBag.productName</h2>
@@ -52,11 +52,12 @@
             <p class="w-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam consequatur nostrum odio eaque magni, quis pariatur dicta commodi, similique animi maiores explicabo quas accusantium sit ea unde exercitationem labore quaerat odit excepturi, ullam nesciunt obcaecati error!</p>
             <p class="w-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia officia mollitia culpa perferendis voluptatum, modi assumenda neque facere. Inventore, quaerat eum? Ex repudiandae id aliquam velit labore, nostrum eum commodi.</p>
             <form action="@Url.Action("AddCart")" method="post" class="mx-auto col-12">
-                <div id="price" class="col-12">
+                <div id="price" class="col-12 my-2">
                     <span class="text-uppercase">數量: </span>
                     <input class="input" type="hidden" name="productNo" value="@Model.product_no" id="productNo">
-                    <input class="input" type="number" name="qantity" value="1" id="name">
+                    <input class="input" style="width:15%;" type="number" name="qantity" value="1" id="name">
                     <input class="input" type="hidden" name="productName" value="@Model.product_name" id="productName">
+                    <span class="pl-2 text-danger">限時搶購!!</span>
 
 
 
@@ -64,16 +65,16 @@
                 @*<div id="price" class="col-12 text-danger"><h3>NT$@Model.product_price</h3></div>*@
 
                 <!-- 置底的BUY -->
-                <div class="align-self-end col-5">
+                <div class="align-self-end col-5 mt-3 w-50">
                     @{
                         if (ViewBag.AllowBuy == "true")
                         {
-                            <button id="callPrompt" type="submit" class="btn btn-info d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
+                            <button id="callPrompt" type="submit" class="btn btn-info d-block text-white w-100" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>加入購物車</button>
 
                         }
                         else
                         {
-                            <button id="callPrompt" type="button" class="btn btn-secondary d-block ml-auto text-white" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
+                            <button id="callPrompt" type="button" class="btn btn-secondary d-block text-white w-100" style="font-size:20px; line-height:30px; border-radius:20px!important;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-shopping-cart pr-2"></i>已加入購物車</button>
 
                         }
                     }

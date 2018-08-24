@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebProject.Models;
 using WebProject.App_Class;
 using WebProject.ViewModel;
+using System.Data.Entity;
+
 
 namespace WebProject.Controllers
 {
@@ -20,10 +22,7 @@ namespace WebProject.Controllers
         {
 
             var products = db.product;
-            if (appClass.Member != "")
-            {
-
-            }
+            ViewBag.Welcome = "歡迎光臨! " + appClass.Member;
 
             return View(products);
         }
@@ -104,34 +103,20 @@ namespace WebProject.Controllers
         {
             var user = appClass.Account;
 
-            CartViewModel cm = new CartViewModel()
-            {
-                CartItems = db.shopping_cart.Where(m => m.member_account == user).ToList(),
-                Products = db.product.ToList()
-            };
-            return View(cm);
+            var cartItem = db.shopping_cart.Where(m=>m.member_account == user).Include(m => m.product);
+            //var cartItem = db.product.Include(m => m.shopping_cart);
+
+
+
+
+            //CartViewModel cm = new CartViewModel()
+            //{
+            //    CartItems = db.shopping_cart.Where(m => m.member_account == user).ToList(),
+            //    Products = db.product.ToList()
+            //};
+            return View(cartItem.ToList());
 
         } 
-
-
-
-
-
-
-            //var CartPNo = db.shopping_cart.Where(m => m.member_account == user).Select(m => m.product_no).ToList();
-
-            //var cart = db.shopping_cart.Where(m => m.member_account == user);
-            //var pNo = db.product.Where(m => m.product_no == CartPNo.ToString()).ToList();
-
-            //var CartItem = from s in cart
-            //          join p in db.product on s.product_no equals p.product_no
-            //          select new { s.product_no, s.member_account, s.product_quantity, p.product_description, p.product_image, p.product_name, p.product_price };
-            //ViewBag.CartItem = CartItem.ToList();
-
-
-
-            //var ProductList = db.product.Where(m => m.product_no == CartList.)
-
 
 
 
@@ -185,16 +170,90 @@ namespace WebProject.Controllers
         }
 
 
+        
+        public ActionResult DeleteCart(int rowid)
+        {
+            var item = db.shopping_cart.Where(m => m.rowid == rowid).FirstOrDefault();
+            db.shopping_cart.Remove(item);
+            db.SaveChanges();
+            var user = appClass.Member;
+
+            return RedirectToAction("Cart");
+        }
+
+
+        [HttpPost]
+        public ActionResult AddOrder(string rname, string rphone, string raddress, string remark)
+        {
+            var time = DateTime.Now;
+            //string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            order_form order = new order_form();
+            order.order_date = time;
+            order.member_account = appClass.Account;
+            order.remittance_account = "0000-0000-0000";
+            order.payment_method = "匯款";
+            order.shipping_status = "已接收訂單";
+            order.recipient_name = rname;
+            order.recipient_phone = rphone;
+            order.recipient_address = raddress;
+            order.remark = remark;
+            db.order_form.Add(order);
+            try { db.SaveChanges(); }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+
+                throw ex;
+            }
+
+            order_detail orderDetail = new order_detail();
+            var cartlist = db.shopping_cart.Where(m => m.member_account == appClass.Account).ToList();
+            foreach (var item in cartlist)
+            {
+                orderDetail.order_id = order.order_id;
+                orderDetail.product_quantity = item.product_quantity;
+                orderDetail.product_no = item.product_no;
+                db.order_detail.Add(orderDetail);
+                try { db.SaveChanges(); }
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+
+
+
+            return RedirectToAction("OrderList");
+
+            //return View();
+        }
+
+
+
+
+
+
         //會員的訂單列表
         public ActionResult OrderList()
         {
-            var user = appClass.Member;
-            //找到該會員的訂單
-            var orders = db.order_form.Where(m => m.member_account == user).OrderByDescending(m => m.order_date).ToList();
+            var orders = db.order_form.Where(m => m.member_account == appClass.Account).OrderByDescending(m => m.order_date).ToList();
 
 
-            return View();
+            return View(orders);
         }
+
+        public ActionResult OrderDetail(int id)
+        {
+
+            var od = db.order_detail.Where(m => m.order_id == id).Include(m => m.order_form);
+
+
+            return View(od);
+        }
+
+
+
 
 
         //產品頁面

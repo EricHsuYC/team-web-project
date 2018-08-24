@@ -179,8 +179,8 @@
     <Content Include="image\product\龍鬚菜.jpg" />
     <Content Include="Models\WebModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>WebModel.Context.cs</LastGenOutput>
       <DependentUpon>WebModel.edmx</DependentUpon>
+      <LastGenOutput>WebModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\WebModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -189,6 +189,13 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\WebModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WebModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WebModel.edmx.diagram">
+      <DependentUpon>WebModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -239,13 +246,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\WebModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WebModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\WebModel.edmx.diagram">
-      <DependentUpon>WebModel.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -258,6 +258,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\OrderList.cshtml" />
+    <Content Include="Views\Home\OrderDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
