@@ -3,12 +3,8 @@
 
 
 @{
-<<<<<<< HEAD
-//var CartItem = (List<String>)ViewBag.CartItem;
-=======
     var Account = HttpContext.Current.Session["Account"];
 
->>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
 }
 
 
@@ -38,19 +34,6 @@
 
 
 
-<<<<<<< HEAD
-                        @{
-                            foreach (var item in Model.CartItems) { 
-
-                            <tr>
-                                <td>
-                                    <img class="w-100" src="~/image/product/@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_image).FirstOrDefault()" />
-                                </td>
-                                <td>
-                                    <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_name).FirstOrDefault()</div>
-                                    <div>@Model.Products.Where(m => m.product_no == item.product_no).Select(m => m.product_description).FirstOrDefault()</div>
-                                    <div>@item.product_no</div>
-=======
                         @foreach (var item in Model)
                         {
                             <tr>
@@ -60,7 +43,6 @@
                                 <td class="align-middle">
                                     <div>@item.product.product_name</div>
                                     <div>@item.product.product_description</div>
->>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
 
 
 
@@ -80,42 +62,6 @@
                         }
 
 
-<<<<<<< HEAD
-                        <tr>
-                            <td>
-                                <img class="w-100" src="https://dummyimage.com/50x50/55595c/fff" />
-                            </td>
-                            <td>Title</td>
-                            <td>In stock</td>
-                            <td>
-                                <input class="form-control" type="text" value="1" />
-                            </td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://dummyimage.com/50x50/55595c/fff" />
-                            </td>
-                            <td>Product Name Titi</td>
-                            <td>In stock</td>
-                            <td>
-                                <input class="form-control" type="text" value="1" />
-                            </td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-=======
-
->>>>>>> c090385da179ca794d22a6cf43f8b5d818e9e775
                         <tr>
                             <td></td>
                             <td></td>
