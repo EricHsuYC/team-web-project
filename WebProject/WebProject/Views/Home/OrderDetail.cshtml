@@ -25,7 +25,7 @@
                             <th scope="col" style="width: 10%"> </th>
                             <th scope="col" class="pl-2">商品</th>
                             <th scope="col">內容</th>
-                            <th scope="col" class="text-center">數量</th>
+                            <th scope="col" class="text-right">數量</th>
                             <th scope="col" class="text-right">單價</th>
                             <th> </th>
                         </tr>
@@ -48,10 +48,10 @@
 
                                 </td>
                                 <td class="align-middle w-25">@item.product.product_details</td>
-                                <td class="mx-auto align-middle">
+                                <td class="mx-auto align-middle text-right pr-2">
                                     <span name="quantity" class="text-center w-50 mx-auto">@item.product_quantity</span>
                                 </td>
-                                <td class="text-right align-middle">@item.product.product_price NT$</td>
+                                <td class="text-right align-middle">NT$ @item.product.product_price </td>
                                 <td class="text-right align-middle"></td>
                             </tr>
                         }

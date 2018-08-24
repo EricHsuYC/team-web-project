@@ -49,12 +49,12 @@
                                 </td>
                                 <td class="align-middle w-25">@item.product.product_details</td>
                                 <td class="mx-auto align-middle">
-                                    <input name="quantity" class="form-control text-center w-50 mx-auto" type="number" value="@item.product_quantity"/>
+                                    <input name="quantity" class="form-control text-center w-25 mx-auto" type="number" value="@item.product_quantity"/>
                                 </td>
                                 <td class="text-right align-middle">@item.product.product_price NT$</td>
-                                <td class="text-right align-middle">
-                                    <button class="btn btn-sm btn-light">
-                                        <a href="@Url.Action("DeleteCart", new {rowid = item.rowid})" class="fa fa-trash-alt p-1 text-danger"></a>
+                                <td class="text-right align-middle pr-5">
+                                    <button class="btn btn-sm btn-light ">
+                                        <a href="@Url.Action("DeleteCart", new {rowid = item.rowid})" class="fa fa-trash-alt fa-lg p-1 text-danger"></a>
                                     </button>
                                 </td>
                             </tr>
