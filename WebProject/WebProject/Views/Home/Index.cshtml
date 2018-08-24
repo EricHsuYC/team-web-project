@@ -1,4 +1,9 @@
-﻿@model IEnumerable<WebProject.Models.product>
+﻿@*@model IEnumerable<WebProject.Models.product>*@
+@model IPagedList<WebProject.Models.product>
+
+@using PagedList
+@using PagedList.Mvc
+
 
 @{
     ViewBag.Title = "Fresh Bar";
@@ -28,7 +33,7 @@
 <div id="header" class="container-fluid ">
     <div class="row col-10 mx-auto h-100 justify-content-center">
         <div class="col-6 align-self-center text-center">
-           
+
             <h3 class="text-white font-weight-bold">Fresh Bar</h3>
 
             <h1 class="text-white font-weight-bold">好吃的生鮮在這裡</h1>
@@ -188,25 +193,25 @@
         <div id="shop_main" class="col h-100">
             <!-- highlighted product start -->
             @*<div id="hl-row" class="row">
-                <div id="hl-card" class="col-7 row">
-                    <div class="col">
-                        <img class="w-100" src="img/product06.jpg" alt="" srcset="">
-                    </div>
-                    <div class="col row align-items-center">
-                        <div class="">
-                            <div class="">NEW ARRIVALS</div>
-                            <h3 class="mb-3">BLABLA TOLLKIT</h3>
-                            <button class="framebtn px-3 py-1">LEARN MORE →</button>
+                    <div id="hl-card" class="col-7 row">
+                        <div class="col">
+                            <img class="w-100" src="img/product06.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col row align-items-center">
+                            <div class="">
+                                <div class="">NEW ARRIVALS</div>
+                                <h3 class="mb-3">BLABLA TOLLKIT</h3>
+                                <button class="framebtn px-3 py-1">LEARN MORE →</button>
+                            </div>
+
                         </div>
 
                     </div>
+                    <div id="hl-card" class="col ml-4">
+                        <img class="w-100" src="img/product07.jpg" alt="" srcset="">
+                    </div>
 
-                </div>
-                <div id="hl-card" class="col ml-4">
-                    <img class="w-100" src="img/product07.jpg" alt="" srcset="">
-                </div>
-
-            </div>*@
+                </div>*@
             <!-- highlighted product end -->
 
 
@@ -227,20 +232,24 @@
                 @foreach (var item in Model)
                 {
                     <div id="p-card" class="col-md-4 col-6">
-                        <a href="@Url.Action("ProductDetail",new { productName = @item.product_name, productNo = @item.product_no, showPrompt = "false"})"><img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
-                        <div class="float-left w-100 row mt-3">
-                            <p class="col-12 mx-auto text-center">@item.product_name</p>
-                            <h3 class="col-12 mx-auto  text-center">@item.product_description</h3>
-                            <p class="col-12 mx-auto text-center">@item.product_price $</p>
-                        </div>
-                        <div id="card_height" class=""></div></a>
+                        <a href="@Url.Action("ProductDetail",new { productName = @item.product_name, productNo = @item.product_no, showPrompt = "false"})">
+                            <img class="w-100 float-left shadow" src="~/image/product/@item.product_image" alt="">
+                            <div class="float-left w-100 row mt-3">
+                                <p class="col-12 mx-auto text-center">@item.product_name</p>
+                                <h3 class="col-12 mx-auto  text-center">@item.product_description</h3>
+                                <p class="col-12 mx-auto text-center">@item.product_price $</p>
+                            </div>
+                            <div id="card_height" class=""></div>
+                        </a>
                     </div>
 
 
                 }
 
+                    <div class="mx-auto">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
-
+                    </div>
 
             </div>
 

@@ -7,6 +7,8 @@ using WebProject.Models;
 using WebProject.App_Class;
 using WebProject.ViewModel;
 using System.Data.Entity;
+using PagedList;
+
 
 
 namespace WebProject.Controllers
@@ -16,15 +18,17 @@ namespace WebProject.Controllers
 
         team_web_projectEntities db = new team_web_projectEntities();
 
+        int pageSize = 12;
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-
-            var products = db.product;
+            int currentPage = page < 1 ? 1 : page;
+            var products = db.product.OrderBy(m=>m.product_no).ToList();
             ViewBag.Welcome = "歡迎光臨! " + appClass.Member;
+            var result = products.ToPagedList(currentPage, pageSize);
 
-            return View(products);
+            return View(result);
         }
 
         public ActionResult Login()

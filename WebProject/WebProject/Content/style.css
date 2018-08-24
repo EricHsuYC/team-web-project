@@ -280,3 +280,8 @@ nav div {
 #footer button {
     background-color: white;
 }
+
+.pagination a{
+    padding: 10px;
+
+}
