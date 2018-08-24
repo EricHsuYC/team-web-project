@@ -8,7 +8,8 @@
 <div class="container-fluid mb-4">
     <div class="row col-10 mx-auto">
         <h3 class="pl-0 my-3 text-muted">訂單明細 Order Detail</h3>
-        <table class="table">
+        <table class="table table-hover">
+            <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.product_quantity)
@@ -21,27 +22,28 @@
                 </th>
                 <th></th>
             </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.product_quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.product_no)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.order_form.recipient_name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.rowid }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.rowid }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.rowid })
-                    </td>
-                </tr>
-            }
-
+                </thead>
+            <tbody>
+                @foreach (var item in Model)
+    {
+            <tr>
+                <td class="py-5">
+                    @Html.DisplayFor(modelItem => item.product_quantity)
+                </td>
+                <td class="py-5">
+                    @Html.DisplayFor(modelItem => item.product_no)
+                </td>
+                <td class="py-5">
+                    @Html.DisplayFor(modelItem => item.order_form.recipient_name)
+                </td>
+                <td class="py-5">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.rowid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.rowid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.rowid })
+                </td>
+            </tr>
+}
+            </tbody>
         </table>
     </div>
 </div>
