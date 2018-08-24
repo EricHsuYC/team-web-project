@@ -246,7 +246,7 @@ namespace WebProject.Controllers
         public ActionResult OrderDetail(int id)
         {
 
-            var od = db.order_detail.Where(m => m.order_id == id).Include(m => m.order_form);
+            var od = db.order_detail.Where(m => m.order_id == id).Include(m => m.order_form).Include(m=>m.product);
 
 
             return View(od);

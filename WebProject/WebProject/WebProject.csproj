@@ -260,6 +260,7 @@
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\OrderList.cshtml" />
     <Content Include="Views\Home\OrderDetail.cshtml" />
+    <Content Include="Views\Home\OrderDetail2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
