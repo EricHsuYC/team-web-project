@@ -30,14 +30,14 @@
         <!-- 右邊說明 -->
         <div class="col-6  row">
             <div id="catagory" class="col-12">
-                <span class="badge badge-pill badge-warning rounded align-bottom" style="font-size:16px;">促銷</span>
-                <span class="badge badge-pill badge-success rounded align-bottom" style="font-size:16px; ">@Model.Product_catagory</span>
+                <span class="badge badge-pill badge-warning rounded align-bottom p-1" style="font-size:16px;">促銷</span>
+                <span class="badge badge-pill badge-success rounded align-bottom p-1" style="font-size:16px; ">@Model.Product_catagory</span>
             </div>
             <div class="col-12">
                 <h2>@ViewBag.productName</h2>
             </div>
             <div class="col-12 text-danger">
-                <span class="badge badge-pill badge-danger rounded" style="font-size:16px;">促銷價</span>
+                <span class="badge badge-pill badge-danger rounded p-1" style="font-size:16px;">促銷價</span>
                 <div id="price" class="col"><h3>NT$@Model.product_price</h3></div>
             </div>
             @*<div id="price" class="col-12 text-danger">促銷價<h3>NT$@Model.product_price</h3></div>*@
@@ -57,7 +57,7 @@
                     <input class="input" type="hidden" name="productNo" value="@Model.product_no" id="productNo">
                     <input class="input" style="width:15%;" type="number" name="qantity" value="1" id="name">
                     <input class="input" type="hidden" name="productName" value="@Model.product_name" id="productName">
-                    <span class="pl-2 text-danger">限時搶購!!</span>
+                    @*<span class="pl-2 text-danger">限時搶購!!</span>*@
 
 
 

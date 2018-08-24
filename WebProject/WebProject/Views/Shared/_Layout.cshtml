@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>@ViewBag.Title - 鮮食吧 FRESH BAR</title>
+    <title>鮮食吧 - @ViewBag.Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,7 +53,23 @@
 else
 {
                      
-            <span class="col-auto pl-3 ml-auto">@ViewBag.Welcome</span>
+            <span class="col-auto pl-3 ml-auto">
+                @{
+                    if(HttpContext.Current.Session["Member"] != null)
+                    {
+                        <span>歡迎光臨! @HttpContext.Current.Session["Member"]</span>
+
+                    }
+                    else
+                    { }
+
+
+
+                 }
+
+
+
+                </span>
             <a class="col-auto pl-3" href="#">
                 @Html.ActionLink("登出", "Logout", "Home")
             </a>
