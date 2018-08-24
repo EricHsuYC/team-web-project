@@ -6,12 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="217642ad0e614c62a8797fb52840b4d6" Name="Diagram1">
         <EntityTypeShape EntityType="team_web_projectModel.member" Width="1.5" PointX="4.875" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team_web_projectModel.order_detail" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="team_web_projectModel.order_detail" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.order_form" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.product" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="team_web_projectModel.shopping_cart" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="team_web_projectModel.FK_order_id" ManuallyRouted="false" />
         <AssociationConnector Association="team_web_projectModel.FK_product_no" ManuallyRouted="false" />
+        <AssociationConnector Association="team_web_projectModel.FK_order_product_no" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

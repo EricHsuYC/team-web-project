@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="team_web_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="team_web_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="member">
           <Key>
             <PropertyRef Name="member_id" />
@@ -34,7 +34,7 @@
           <Property Name="recipient_phone" Type="nvarchar" MaxLength="50" />
           <Property Name="recipient_address" Type="nvarchar" MaxLength="50" />
           <Property Name="payment_method" Type="nvarchar" MaxLength="50" />
-          <Property Name="remittance_account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="remittance_account" Type="nvarchar" MaxLength="50" />
           <Property Name="payment_status" Type="nvarchar" MaxLength="50" />
           <Property Name="shipping_status" Type="nvarchar" MaxLength="50" />
           <Property Name="member_account" Type="nvarchar" MaxLength="50" />
@@ -73,6 +73,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_order_product_no">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="order_detail" Type="Self.order_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_no" />
+            </Principal>
+            <Dependent Role="order_detail">
+              <PropertyRef Name="product_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_product_no">
           <End Role="product" Type="Self.product" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
@@ -95,13 +107,16 @@
             <End Role="order_form" EntitySet="order_form" />
             <End Role="order_detail" EntitySet="order_detail" />
           </AssociationSet>
+          <AssociationSet Name="FK_order_product_no" Association="Self.FK_order_product_no">
+            <End Role="product" EntitySet="product" />
+            <End Role="order_detail" EntitySet="order_detail" />
+          </AssociationSet>
           <AssociationSet Name="FK_product_no" Association="Self.FK_product_no">
             <End Role="product" EntitySet="product" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="team_web_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -124,6 +139,7 @@
           <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="order_form" Relationship="Self.FK_order_id" FromRole="order_detail" ToRole="order_form" />
+          <NavigationProperty Name="product" Relationship="team_web_projectModel.FK_order_product_no" FromRole="order_detail" ToRole="product" />
         </EntityType>
         <EntityType Name="order_form">
           <Key>
@@ -135,7 +151,7 @@
           <Property Name="recipient_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="recipient_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="payment_method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="remittance_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="remittance_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="payment_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="shipping_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="member_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -154,6 +170,7 @@
           <Property Name="product_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Product_catagory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="shopping_cart" Relationship="Self.FK_product_no" FromRole="product" ToRole="shopping_cart" />
+          <NavigationProperty Name="order_detail" Relationship="team_web_projectModel.FK_order_product_no" FromRole="product" ToRole="order_detail" />
         </EntityType>
         <EntityType Name="shopping_cart">
           <Key>
@@ -203,7 +220,23 @@
             <End Role="product" EntitySet="product" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
+          <AssociationSet Name="FK_order_product_no" Association="team_web_projectModel.FK_order_product_no">
+            <End Role="product" EntitySet="product" />
+            <End Role="order_detail" EntitySet="order_detail" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_order_product_no">
+          <End Type="team_web_projectModel.product" Role="product" Multiplicity="0..1" />
+          <End Type="team_web_projectModel.order_detail" Role="order_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_no" />
+            </Principal>
+            <Dependent Role="order_detail">
+              <PropertyRef Name="product_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

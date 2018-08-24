@@ -26,7 +26,8 @@ namespace WebProject.Models
         [DisplayName("°Ó«~½s¸¹")]
         public string product_no { get; set; }
         public int rowid { get; set; }
-    
+
         public virtual order_form order_form { get; set; }
+        public virtual product product { get; set; }
     }
 }

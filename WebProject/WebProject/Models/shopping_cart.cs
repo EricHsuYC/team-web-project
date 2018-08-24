@@ -28,7 +28,7 @@ namespace WebProject.Models
         [Required]
         public string member_account { get; set; }
         public int rowid { get; set; }
-    
+
         public virtual product product { get; set; }
     }
 }

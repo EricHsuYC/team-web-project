@@ -20,6 +20,7 @@ namespace WebProject.Models
         public product()
         {
             this.shopping_cart = new HashSet<shopping_cart>();
+            this.order_detail = new HashSet<order_detail>();
         }
 
         [DisplayName("²£«~½s¸¹")]
@@ -52,5 +53,7 @@ namespace WebProject.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shopping_cart> shopping_cart { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<order_detail> order_detail { get; set; }
     }
 }
