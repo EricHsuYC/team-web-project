@@ -165,11 +165,11 @@
 
 <div class="modal fade mx-auto w-100" id="buy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mx-auto" role="document">
-        <div class="modal-content" style="width:600px; border-radius: 30px!important;">
-            <div class="container-fluid mx-auto">
-                <div class="card mx-auto " style="width:600px; border:2px solid #dbdbdb; border-radius:30px!important;">
-                    <article class="card-body mx-auto" style="max-width:400px;">
-                        <h4 class="card-title mt-3 text-center my-3 pt-3">填寫收件資料</h4>
+        <div class="modal-content">
+            <div class="container-fluid mx-auto mt-5">
+                <div class="card mx-auto " style="width:600px; border:2px solid #dbdbdb; border-radius: 30px!important;">
+                    <article class="card-body mx-auto" style="max-width: 400px;">
+                        <h4 class="card-title mt-3 text-center my-3">填寫收件資料</h4>
                         <p class="text-center">Fill in the receipt information and let us serve you.</p>
                         <form action="@Url.Action("AddOrder")" method="post">
 
@@ -181,7 +181,7 @@
                                     </span>
                                 </div>
 
-                                <input name="rname" class="form-control" placeholder=" 收件人姓名" required="required" type="text">
+                                <input name="rname" class="form-control" placeholder=" 收件人姓名" type="text">
                             </div>
 
 
@@ -193,7 +193,7 @@
                                     </span>
                                 </div>
 
-                                <input name="rphone" class="form-control" placeholder=" 收件人電話" required="required" type="text">
+                                <input name="rphone" class="form-control" placeholder=" 收件人電話" type="text">
                             </div>
                             <!-- form-group// -->
 
@@ -204,7 +204,7 @@
                                     </span>
                                 </div>
 
-                                <input name="raddress" class="form-control" placeholder="收件地址" required="required" type="text">
+                                <input name="raddress" class="form-control" placeholder="收件地址" type="text">
                             </div>
 
                             <div class="form-group input-group my-4">

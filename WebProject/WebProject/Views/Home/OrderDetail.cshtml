@@ -25,16 +25,16 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.product_quantity)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.product_no)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.order_form.recipient_name)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.rowid }) |
                         @Html.ActionLink("Details", "Details", new { id = item.rowid }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.rowid })

@@ -44,35 +44,35 @@
 
             @foreach (var item in Model)
             {
-                <tr >
-                    <td class="py-5">
+                <tr>
+                    <td>
                         @Html.DisplayFor(modelItem => item.order_date)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.recipient_name)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.recipient_phone)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.recipient_address)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.payment_method)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.remittance_account)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.payment_status)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.shipping_status)
                     </td>
-                    <td class="py-5">
+                    <td>
                         @Html.DisplayFor(modelItem => item.remark)
                     </td>
-                    <td class="text-info py-5">
+                    <td class="text-info">
                         @Html.ActionLink("訂單內容", "OrderDetail", new { id = item.order_id })
                     </td>
                 </tr>
