@@ -192,6 +192,11 @@ namespace WebProject.Controllers
             var time = DateTime.Now;
             //string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
             order_form order = new order_form();
+
+
+
+
+
             order.order_date = time;
             order.member_account = appClass.Account;
             order.remittance_account = "0000-0000-0000";
@@ -224,6 +229,16 @@ namespace WebProject.Controllers
                     throw ex;
                 }
             }
+            var clearCart = db.shopping_cart.Where(m => m.member_account == appClass.Account).ToList();
+            foreach (var item in clearCart)
+            {
+                var deleteItem = db.shopping_cart.Where(m => m.member_account == appClass.Account).FirstOrDefault();
+                db.shopping_cart.Remove(deleteItem);
+                db.SaveChanges();
+            }
+
+
+
 
 
 
